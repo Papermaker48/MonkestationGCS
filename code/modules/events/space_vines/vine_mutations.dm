@@ -319,7 +319,7 @@
 /datum/spacevine_mutation/hardened/on_grow(obj/structure/spacevine/holder)
 	if(holder.growth_stage)
 		holder.set_density(TRUE)
-	holder.modify_max_integrity(100)
+	holder.modify_max_integrity(66) //GCS CHANGE: 100 ==> 66
 
 /datum/spacevine_mutation/hardened/on_hit(obj/structure/spacevine/holder, mob/living/hitter, obj/item/item, expected_damage)
 	if(item?.get_sharpness())

@@ -21,7 +21,7 @@
 			if(BURN)
 				damage_amount *= 1.25
 			if(BRUTE)
-				damage_amount *= 0.25
+				damage_amount *= 1 //GCS CHANGE: 0.25 ==> 1
 	. = ..()
 
 /obj/structure/spider/should_atmos_process(datum/gas_mixture/air, exposed_temperature)
@@ -113,7 +113,7 @@
 	can_atmos_pass = ATMOS_PASS_NO
 	opacity = TRUE
 	density = TRUE
-	max_integrity = 90
+	max_integrity = 30 //GCS CHANGE: 90 ==> 30
 	plane = GAME_PLANE_UPPER
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF
 
@@ -128,7 +128,7 @@
 	icon_state = "webpassage"
 	can_atmos_pass = ATMOS_PASS_NO
 	opacity = TRUE
-	max_integrity = 60
+	max_integrity = 26 //GCS CHANGE: 60 ==> 26
 	alpha = 200
 	plane = GAME_PLANE_UPPER
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF

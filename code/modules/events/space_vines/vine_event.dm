@@ -53,9 +53,9 @@
 		else
 			selected_mutations = override_mutations
 		if(isnull(potency))
-			potency = rand(50,100)
+			potency = rand(33,66) //GCS CHANGE: 50,100 ==> 33,66
 		if(isnull(production))
-			production = rand(1, 4)
+			production = rand(1, 2) //GCS CHANGE: 1, 4 ==> 1, 2
 
 		new /datum/spacevine_controller(floor, selected_mutations, potency, production, src) //spawn a controller at turf with randomized stats and a single random mutation
 

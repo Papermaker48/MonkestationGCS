@@ -63,8 +63,8 @@
 	icon_living = "guard"
 	icon_dead = "guard_dead"
 	gender = FEMALE
-	maxHealth = 160
-	health = 160
+	maxHealth = 140 //GCS CHANGE: 160 ==> 140
+	health = 140 //DITTO
 	melee_damage_lower = 20
 	melee_damage_upper = 25
 	obj_damage = 45
@@ -155,7 +155,7 @@
 	melee_damage_upper = 10
 	speed = 4
 	player_speed_modifier = -3.1
-	web_speed = 0.25
+	web_speed = 2 //GCS CHANGE: 0.25 ==> 2
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	menu_description = "Support spider variant specializing in healing their brethren and placing webbings very swiftly, but has very low amount of health and deals low damage."
 	///The health HUD applied to the mob.
@@ -199,7 +199,7 @@
 	poison_per_bite = 5
 	poison_type = /datum/reagent/toxin/acid
 	obj_damage = 40
-	web_speed = 0.25
+	web_speed = 2 //GCS CHANGE: 0.25 ==> 2
 	speed = 4
 	player_speed_modifier = -3.1
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
@@ -251,8 +251,8 @@
 	icon_state = "tarantula"
 	icon_living = "tarantula"
 	icon_dead = "tarantula_dead"
-	maxHealth = 360 // woah nelly
-	health = 360
+	maxHealth = 240 // woah nelly //GCS CHANGE: 360 ==> 240
+	health = 240 //DITTO
 	melee_damage_lower = 35
 	melee_damage_upper = 40
 	obj_damage = 100
@@ -261,7 +261,7 @@
 	player_speed_modifier = -5.5 // Doesn't seem that slow but it gets a debuff off web
 	mob_size = MOB_SIZE_LARGE
 	gold_core_spawnable = NO_SPAWN
-	web_speed = 0.7
+	web_speed = 4 //GCS CHANGE: 0.7 ==> 3
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	menu_description = "Tank spider variant with an enormous amount of health and damage, but is very slow when not on webbing. It also has a charge ability to close distance with a target after a small windup."
 	/// Charging ability
@@ -335,14 +335,14 @@
 	icon_state = "midwife"
 	icon_living = "midwife"
 	icon_dead = "midwife_dead"
-	maxHealth = 250
-	health = 250
+	maxHealth = 150 //GCS CHANGE: 250 ==> 150
+	health = 150 //DITTO
 	melee_damage_lower = 10
 	melee_damage_upper = 15
 	speed = 4
 	player_speed_modifier = -3.1
 	gold_core_spawnable = NO_SPAWN
-	web_speed = 0.5
+	web_speed = 2 //GCS CHANGE: 0.5 ==> 2
 	web_type = /datum/action/cooldown/mob_cooldown/lay_web/sealer
 	menu_description = "Royal spider variant specializing in reproduction and leadership, deals low damage."
 
