@@ -17,7 +17,7 @@ OOC_DURING_ROUND
 
 ## LOOC
 ## Comment this out to disable LOOC
-LOOC_ENABLED
+#LOOC_ENABLED
 
 ## EMOJI ###
 ## Comment this out if you want to disable emojis
@@ -37,7 +37,8 @@ COMMENDATION_PERCENT_POLL 0.05
 ## To speed things up make the number negative, to slow things down, make the number positive.
 
 ## These modify the run/walk speed of all mobs before the mob-specific modifiers are applied.
-SPRINT_DELAY 1.2
+# paper edit, default sprint was 1.2
+SPRINT_DELAY 1.3
 RUN_DELAY 1.8
 WALK_DELAY 4
 
@@ -55,7 +56,7 @@ MULTIPLICATIVE_MOVESPEED /mob/living/basic 0
 
 ## NAMES ###
 ## If uncommented this adds a random surname to a player's name if they only specify one name.
-HUMANS_NEED_SURNAMES
+#HUMANS_NEED_SURNAMES
 
 ## If uncommented, this forces all players to use random names !and appearances!.
 #FORCE_RANDOM_NAMES
@@ -84,7 +85,7 @@ ALERT_RED_DOWNTO The station's destruction has been averted. There is still howe
 ALERT_DELTA Destruction of the station is imminent. All crew are instructed to obey all instructions given by heads of staff. Any violations of these orders can be punished by death. This is not a drill.
 
 ## The total weight of station goals possible for a round (allows multiple goals)
-STATION_GOAL_BUDGET 1
+STATION_GOAL_BUDGET 2
 
 ## GAME MODES ###
 
@@ -117,7 +118,7 @@ BROTHER_OBJECTIVES_AMOUNT 2
 
 ## Uncomment to prohibit jobs that start with loyalty
 ## implants from being most antagonists.
-PROTECT_ROLES_FROM_ANTAGONIST
+#PROTECT_ROLES_FROM_ANTAGONIST
 
 ## Uncomment to prohibit assistants from becoming most antagonists.
 #PROTECT_ASSISTANT_FROM_ANTAGONIST
@@ -150,7 +151,7 @@ EVENTS_MIN_TIME_MUL 1
 
 ## Multiplier for minimal player count (players = alive non-AFK humans) for dangerous events to start.
 ## Set to 0 to make dangerous events avaliable for all populations.
-EVENTS_MIN_PLAYERS_MUL 1
+EVENTS_MIN_PLAYERS_MUL 0
 
 
 ## AI ###
@@ -163,7 +164,7 @@ ALLOW_AI_MULTICAM
 
 ## Secborg ###
 ## Uncomment to prevent the security cyborg model from being chosen
-#DISABLE_SECBORG
+DISABLE_SECBORG
 
 ## Peacekeeper Borg ###
 ## Uncomment to prevent the peacekeeper cyborg model from being chosen
@@ -172,7 +173,7 @@ ALLOW_AI_MULTICAM
 ## AWAY MISSIONS ###
 
 ## Uncomment to load one of the missions from awaymissionconfig.txt or away_missions/ at roundstart.
-#ROUNDSTART_AWAY
+ROUNDSTART_AWAY
 
 ## How long the delay is before the Away Mission gate opens. Default is half an hour.
 ## 600 is one minute.
@@ -201,7 +202,7 @@ MINIMAL_ACCESS_THRESHOLD 20
 #SECURITY_HAS_MAINT_ACCESS
 
 ## Uncomment to give everyone maint access.
-#EVERYONE_HAS_MAINT_ACCESS
+EVERYONE_HAS_MAINT_ACCESS
 
 ## Comment this out this to make security officers spawn in departmental security posts
 #SEC_START_BRIG
@@ -215,7 +216,7 @@ DEPSEC_ACCESS_LEVEL 1
 
 ## GHOST INTERACTION ###
 ## Uncomment to let ghosts spin chairs. You may be wondering why this is a config option. Don't ask.
-#GHOST_INTERACTION
+GHOST_INTERACTION
 
 ## NEAR-DEATH EXPERIENCE ###
 ## Comment this out to disable mobs hearing ghosts when unconscious and very close to death
@@ -235,7 +236,7 @@ NEAR_DEATH_EXPERIENCE
 ## Set to 4 for "specified", silicons will start with an existing lawset. (If no specified lawset is identified, the AI will spawn with asimov.)
 
 
-DEFAULT_LAWS 0
+DEFAULT_LAWS 3
 
 ## SILICON ASIMOV SUPERIORITY OVERRIDE ###
 ## This makes "Asimov Superiority" show up as a perk for humans in the character creation menu even if asimov is not the default lawset, such as when used with asimov++
@@ -263,13 +264,13 @@ RANDOM_LAWS robocop
 RANDOM_LAWS corporate
 
 ## Quirky laws. Shouldn't cause too much harm
-#RANDOM_LAWS hippocratic
-#RANDOM_LAWS maintain
-#RANDOM_LAWS liveandletlive
-#RANDOM_LAWS peacekeeper
-#RANDOM_LAWS reporter
-#RANDOM_LAWS hulkamania
-#RANDOM_LAWS ten_commandments
+RANDOM_LAWS hippocratic
+RANDOM_LAWS maintain
+RANDOM_LAWS liveandletlive
+RANDOM_LAWS peacekeeper
+RANDOM_LAWS reporter
+RANDOM_LAWS hulkamania
+RANDOM_LAWS ten_commandments
 
 ## Bad idea laws. Probably shouldn't enable these
 #RANDOM_LAWS syndie
@@ -397,7 +398,7 @@ ROUNDSTART_RACES floran
 #ROUNDSTART_RACES metallic_hydrogen_golem
 
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them
-#ROUNDSTART_RACES skeleton
+ROUNDSTART_RACES skeleton
 #ROUNDSTART_RACES zombie
 #ROUNDSTART_RACES slime
 #ROUNDSTART_RACES pod
@@ -435,7 +436,7 @@ OVERFLOW_JOB Assistant
 OVERFLOW_CAP -1
 
 ## Enables Spooktober jobs.
-SPOOKTOBER_ENABLED
+#SPOOKTOBER_ENABLED
 
 ## Uncomment to bring back old grey suit assistants instead of the now default rainbow colored assistants.
 #GREY_ASSISTANTS
@@ -490,7 +491,7 @@ ARRIVALS_SHUTTLE_DOCK_WINDOW 55
 
 ## How many wirechewing rodents you want to spawn on exposed maintenane wires at the start of the round. You may wish to set this to 0 if you're testing powernets.
 
-MICE_ROUNDSTART 10
+MICE_ROUNDSTART 8
 
 ## If the percentage of players alive (doesn't count conversions) drops below this threshold the emergency shuttle will be forcefully called (provided it can be)
 #EMERGENCY_SHUTTLE_AUTOCALL_THRESHOLD 0.2
@@ -503,7 +504,7 @@ ROUNDSTART_TRAITS
 #DISABLE_HUMAN_MOOD
 
 ## Enable night shifts
-#ENABLE_NIGHT_SHIFTS
+ENABLE_NIGHT_SHIFTS
 
 ## The shift start hour in 24-hour (0-23) notation
 SHIFT_TIME_START_HOUR 7

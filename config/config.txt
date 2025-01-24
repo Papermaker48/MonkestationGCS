@@ -18,22 +18,22 @@ $include auxtools.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-# SERVERNAME tgstation
+SERVERNAME dodestation
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Space Station 13
+STATIONNAME Dode Station 13
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
-LOBBY_COUNTDOWN 300
+LOBBY_COUNTDOWN 240
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
-ROUND_END_COUNTDOWN 90
+ROUND_END_COUNTDOWN 120
 
 ## Comment this out if you want to use the SQL based admin system, the legacy system uses admins.txt.
 ## You need to set up your database to use the SQL based system.
@@ -64,7 +64,7 @@ ENABLE_LOCALHOST_RANK
 #USE_ACCOUNT_AGE_FOR_JOBS
 
 ## Unhash this to track player playtime in the database. Requires database to be enabled.
-#USE_EXP_TRACKING
+USE_EXP_TRACKING
 ## Unhash this to enable playtime requirements for head jobs.
 #USE_EXP_RESTRICTIONS_HEADS
 ## Unhash this to override head jobs' playtime requirements with this number of hours.
@@ -130,7 +130,7 @@ VOTE_PERIOD 600
 NORESPAWN
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Yournamehere
+HOSTEDBY Papermaker
 
 ## Uncomment this to stop people connecting to your server without a registered ckey. (i.e. guest-* are all blocked from connecting)
 GUEST_BAN
@@ -378,7 +378,7 @@ CLIENT_ERROR_BUILD 1590
 ## Set to 0 or comment out to disable.
 SECOND_TOPIC_LIMIT 10
 
-MINUTE_TOPIC_LIMIT 100
+3MINUTE_TOPIC_LIMIT 100
 
 
 ## CLICK RATE LIMITING
@@ -389,7 +389,7 @@ MINUTE_TOPIC_LIMIT 100
 ## Set to 0 to disable.
 SECOND_CLICK_LIMIT 15
 
-MINUTE_CLICK_LIMIT 400
+3MINUTE_CLICK_LIMIT 400
 
 ##Error handling related options
 ## The "cooldown" time for each occurence of a unique error
