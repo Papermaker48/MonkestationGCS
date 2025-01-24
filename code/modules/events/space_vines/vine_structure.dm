@@ -10,7 +10,7 @@
 	plane = GAME_PLANE_UPPER_FOV_HIDDEN
 	mouse_opacity = MOUSE_OPACITY_OPAQUE //Clicking anywhere on the turf is good enough
 	pass_flags = PASSTABLE | PASSGRILLE
-	max_integrity = 50
+	max_integrity = 25 //GCS CHANGE: 50 ==> 25
 	/// What growth stage is this vine at?
 	var/growth_stage = 0
 	/// Can this kudzu spread?
