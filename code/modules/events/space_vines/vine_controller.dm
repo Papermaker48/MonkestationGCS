@@ -16,15 +16,15 @@ GLOBAL_LIST_INIT(vine_mutations_list, init_vine_mutation_list())
 	//List of currently processed vines, on this level to prevent runtime tomfoolery
 	var/list/obj/structure/spacevine/queue_end
 	///Spread multiplier, depends on productivity, affects how often kudzu spreads
-	var/spread_multiplier = 5 // corresponds to artifical kudzu with production speed of 1, approaches 10% of total vines will spread per second
+	var/spread_multiplier = 2 //GCS CHANGE: 5 ==> 2 // corresponds to artifical kudzu with production speed of 1, approaches 10% of total vines will spread per second
 	///Maximum spreading limit (ie. how many kudzu can there be) for this controller
-	var/spread_cap = 30 // corresponds to artifical kudzu with production speed of 3.5
+	var/spread_cap = 16 //GCS CHANGE: 30 ==> 16 // corresponds to artifical kudzu with production speed of 3.5
 	///The chance that we will develop a new mutation
 	var/mutativeness = 1
 	///Maximum sum of mutation severities
 	var/max_mutation_severity = 20
 	///Minimum spread rate per second
-	var/minimum_spread_rate = 1
+	var/minimum_spread_rate = 0 //GCS CHANGE: 1 ==> 0
 
 /datum/spacevine_controller/New(turf/location, list/muts, potency, production, datum/round_event/event = null)
 	vines = list()
@@ -42,7 +42,7 @@ GLOBAL_LIST_INIT(vine_mutations_list, init_vine_mutation_list())
 		spread_multiplier = qp_sigmoid(100, SPREAD_MULTIPLIER_MAX, production) // gets to 10% at 100 production instead of 1 production, gets close to 20% at +infinity
 	if(event != null) // spawned by space vine event
 		max_mutation_severity += MAX_SEVERITY_EVENT_BONUS
-		minimum_spread_rate = 3
+		minimum_spread_rate = 2 //GCS CHANGE: 3 ==> 2
 
 /datum/spacevine_controller/vv_get_dropdown()
 	. = ..()
