@@ -12,7 +12,7 @@
 /// Determines the probability that the thorn mutation will harm someone who passes through or attacks it
 #define THORN_MUTATION_CUT_PROB 10
 /// Determines the probability that a kudzu plant with the flowering mutation will spawn a venus flower bud
-#define FLOWERING_MUTATION_SPAWN_PROB 4 //GCS CHANGE: 10 ==> 4
+#define FLOWERING_MUTATION_SPAWN_PROB 3 //GCS CHANGE: 10 ==> 3
 /// Maximum energy used per atmos tick that the temperature stabilisation mutation will use to bring the temperature to T20C
 #define TEMP_STABILISATION_MUTATION_MAXIMUM_ENERGY 40000
 
@@ -46,4 +46,4 @@
 #define SPREAD_MULTIPLIER_MAX 20
 
 /// Kudzu's maximum possible maximum mutation severity (assuming ideal potency), used to balance mutation appearance chance
-#define IDEAL_MAX_SEVERITY 16 //GCS CHANGE: 20 ==> 16
+#define IDEAL_MAX_SEVERITY 12 //GCS CHANGE: 20 ==> 12
