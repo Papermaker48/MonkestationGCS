@@ -1,7 +1,7 @@
 ###Files and folders specified here will never be tracked.
 
 # Local overrides--you can use this to change the config for your dev environment (like setting up SQL) without worrying about committing it
-/config/dev_overrides.txt
+#/config/dev_overrides.txt
 
 #Ignore everything in datafolder and subdirectories
 /data/**/*
@@ -9,6 +9,8 @@
 
 #Ignore byond config folder.
 /cfg/**/*
+
+config/**/*
 
 #Ignore IDE files we don't need in the repo.
 /.vs/**/*
@@ -195,12 +197,12 @@ Temporary Items
 /dmdoc
 
 # Ignore custom music and title screens (amend as appropriate)
-/config/jukebox_music/sounds/*
-!/config/jukebox_music/sounds/exclude
-/config/title_music/sounds/*
-!/config/title_music/sounds/exclude
-/config/title_screens/images/*
-!/config/title_screens/images/exclude
+#/config/jukebox_music/sounds/*
+#!/config/jukebox_music/sounds/exclude
+#/config/title_music/sounds/*
+#!/config/title_music/sounds/exclude
+#/config/title_screens/images/*
+#!/config/title_screens/images/exclude
 
 #Linux docker
 /tools/tgs_test/.vs/*
@@ -235,8 +237,8 @@ Tracy.exe
 define_sanity_output.txt
 
 #This file contains developer-specific config overrides. These shouldn't be committed.
-config/_config_nogit.txt
-config/dbconfig.txt
+#config/_config_nogit.txt
+#config/dbconfig.txt
 
 # ezdb
 /db/

@@ -457,10 +457,6 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.handle_player_polling()
 
-#define NRP_PORT		2102
-#define MRP_PORT		3121
-#define HRP_PORT		1342
-#define VANDERLIN_PORT	1541
 
 //This is the changing You are here Button
 /atom/movable/screen/lobby/youarehere
@@ -486,97 +482,6 @@ INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby/youarehere)
 			screen_loc = "TOP:-98,CENTER:+215"
 		else     //Sticks it in the middle, "TOP:0,CENTER:+128" will point at the MonkeStation logo itself.
 			screen_loc = "TOP:0,CENTER:+128"
-
-/atom/movable/screen/lobby/button/server
-	icon = 'icons/hud/lobby/sister_server_buttons.dmi'
-	abstract_type = /atom/movable/screen/lobby/button/server
-	enabled = FALSE
-	/// The name of the server, used for the connecting message.
-	var/server_name
-	/// The IP of this server.
-	var/server_ip = "play.monkestation.com"
-	/// The port of this server.
-	var/server_port
-
-INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby/button/server)
-
-/atom/movable/screen/lobby/button/server/Initialize(mapload)
-	. = ..()
-	set_button_status(is_available())
-	update_appearance(UPDATE_ICON_STATE)
-
-/atom/movable/screen/lobby/button/server/proc/is_available()
-	var/time_info = time2text(world.realtime, "DDD hh")
-	var/day = copytext(time_info, 1, 4)
-	var/hour = text2num(copytext(time_info, 5))
-	if(!should_be_up(day, hour))
-		return FALSE
-	return TRUE
-
-/atom/movable/screen/lobby/button/server/proc/should_be_up(day, hour)
-	return TRUE
-
-/atom/movable/screen/lobby/button/server/Click(location, control, params)
-	. = ..()
-	if(. && world.port != server_port && is_available())
-		var/server_link = "byond://[server_ip]:[server_port]"
-		to_chat_immediate(
-			target = hud.mymob,
-			html = boxed_message(span_info(span_big("Connecting you to [server_name]\nIf nothing happens, try manually connecting to the server ([server_link]), or the server may be down!"))),
-			type = MESSAGE_TYPE_INFO,
-		)
-		hud.mymob.client << link(server_link)
-
-//HRP MONKE
-/atom/movable/screen/lobby/button/server/hrp
-	base_icon_state = "hrp"
-	screen_loc = "TOP:-44,CENTER:+173"
-	server_name = "Well-Done Roleplay (HRP)"
-	server_port = HRP_PORT
-
-/atom/movable/screen/lobby/button/server/hrp/should_be_up(day, hour)
-	return day == SATURDAY && ISINRANGE(hour, 12, 18)
-
-//MAIN MONKE
-/atom/movable/screen/lobby/button/server/mrp
-	base_icon_state = "mrp"
-	screen_loc = "TOP:-77,CENTER:+173"
-	enabled = TRUE
-	server_name = "Medium-Rare Roleplay (MRP)"
-	server_port = MRP_PORT
-
-//NRP MONKE
-/*
-/atom/movable/screen/lobby/button/server/nrp
-	screen_loc = "TOP:-110,CENTER:+173"
-	base_icon_state = "nrp"
-	server_name = "Raw Roleplay (NRP)"
-	server_port = NRP_PORT
-*/
-//bottom button is "TOP:-140,CENTER:+177"
-//The Vanderlin Project
-/atom/movable/screen/lobby/button/server/vanderlin
-	icon = 'icons/hud/lobby/vanderlin_button.dmi'
-	base_icon_state = "vanderlin"
-	screen_loc = "TOP:-137,CENTER:+177"
-	server_name = "Vanderlin"
-	server_port = VANDERLIN_PORT
-
-/atom/movable/screen/lobby/button/server/vanderlin/should_be_up(day, hour)
-	return TRUE
-/*
-	switch(day)
-		if(FRIDAY)
-			return (hour >= 15)
-		if(SATURDAY, SUNDAY)
-			return TRUE
-	return FALSE
-*/
-
-#undef VANDERLIN_PORT
-#undef HRP_PORT
-#undef MRP_PORT
-#undef NRP_PORT
 
 //Monke button
 /atom/movable/screen/lobby/button/ook
