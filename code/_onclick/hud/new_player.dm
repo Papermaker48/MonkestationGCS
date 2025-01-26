@@ -457,32 +457,6 @@
 	var/mob/dead/new_player/new_player = hud.mymob
 	new_player.handle_player_polling()
 
-
-//This is the changing You are here Button
-/atom/movable/screen/lobby/youarehere
-	var/vanderlin = 0
-	screen_loc = "TOP:-81,CENTER:+177"
-	icon = 'icons/hud/lobby/location_indicator.dmi'
-	icon_state = "you_are_here"
-	screen_loc = "TOP,CENTER:-61"
-
-INITIALIZE_IMMEDIATE(/atom/movable/screen/lobby/youarehere)
-
-//Explanation: It gets the port then sets the "here" var in /movable/screen/lobby to the port number
-// and if the port number matches it makes clicking the button do nothing so you dont spam reconnect to the server your in
-/atom/movable/screen/lobby/youarehere/Initialize(mapload)
-	. = ..()
-	var/port = world.port
-	switch(port)
-		if(HRP_PORT) //HRP
-			screen_loc = "TOP:-32,CENTER:+215"
-		if(MRP_PORT) //MRP
-			screen_loc = "TOP:-65,CENTER:+215"
-		if(NRP_PORT) //NRP
-			screen_loc = "TOP:-98,CENTER:+215"
-		else     //Sticks it in the middle, "TOP:0,CENTER:+128" will point at the MonkeStation logo itself.
-			screen_loc = "TOP:0,CENTER:+128"
-
 //Monke button
 /atom/movable/screen/lobby/button/ook
 	screen_loc = "TOP:-126,CENTER:110"
