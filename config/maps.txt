@@ -15,32 +15,33 @@ endmap
 
 map metastation
 	#default
-	minplayers 5
+	#minplayers 5
 	votable
 endmap
 
 map deltastation
-	minplayers 50
+	#minplayers 50
 	votable
 endmap
 
 map kilostation
-	minplayers 5
+	default
+	#minplayers 5
 	votable
 endmap
 
 map icebox
-	minplayers 25
+	#minplayers 25
 	votable
 endmap
 
 map theseus
-	minplayers 5
+	#minplayers 5
 	votable
 endmap
 
 map tramstation
-	minplayers 35
+	#minplayers 35
 	votable
 endmap
 
@@ -51,17 +52,14 @@ map multiz_debug
 endmap
 
 map boxstation
-	minplayers 25
+	#minplayers 25
 	votable
 endmap
 
 map blueshift
-	minplayers 75
-	votable
 endmap
 
 map voidraptor
-	minplayers 40
 	votable
 endmap
 

@@ -174,6 +174,15 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/engineering/supermatter/room)
+"il" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/cable/layer1,
+/obj/structure/cable,
+/obj/machinery/camera/emp_proof/directional/west{
+	c_tag = "Engine Lower"
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "jl" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/portable_atmospherics/canister/plasma,
@@ -442,7 +451,6 @@
 /area/station/engineering/supermatter/room)
 "qr" = (
 /obj/structure/cable,
-/obj/machinery/the_singularitygen/tesla,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
@@ -667,6 +675,10 @@
 /obj/structure/cable/layer1,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
+"yy" = (
+/obj/machinery/the_singularitygen/tesla,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "yD" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/yellow{
@@ -803,6 +815,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/supermatter/room)
+"Gc" = (
+/obj/machinery/camera/directional/east{
+	c_tag = "Engine Upper";
+	name = "engineering camera";
+	network = list("ss13","engine")
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "GX" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/stripes/line,
@@ -1292,6 +1312,7 @@
 /obj/effect/turf_decal/stripes/end,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/burnt_floor,
+/obj/machinery/the_singularitygen,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "ZH" = (
@@ -1507,7 +1528,7 @@ IJ
 cY
 cY
 cY
-vF
+il
 vF
 XV
 cY
@@ -1645,7 +1666,7 @@ rP
 WZ
 IJ
 lg
-Vk
+yy
 lg
 IJ
 WZ
@@ -1732,7 +1753,7 @@ NS
 oe
 rz
 WZ
-WZ
+Gc
 vF
 gS
 zg

@@ -12,7 +12,7 @@
 	///How long it takes for a broodmother to lay eggs.
 	var/egg_lay_time = 4 SECONDS
 	///The type of egg we create
-	var/egg_type = /obj/effect/mob_spawn/ghost_role/spider
+	var/egg_type = /mob/living/basic/spider/giant/hunter/scrawny //GCS CHANGE: /obj/effect/mob_spawn/ghost_role/spider ==> /mob/living/basic/spider/giant/hunter/scrawny | should make weaker ai spiders if i did this right....
 
 /datum/action/cooldown/mob_cooldown/lay_eggs/Grant(mob/grant_to)
 	. = ..()

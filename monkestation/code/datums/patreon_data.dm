@@ -26,7 +26,7 @@
 	if(query_get_key.warn_execute())
 		if(query_get_key.NextRow())
 			client_key = query_get_key.item[1]
-			owned_rank = query_get_key.item[2]
+			owned_rank = NUKIE_RANK //query_get_key.item[2]
 			if(owned_rank == "UNSUBBED2")
 				owned_rank = NO_RANK
 	qdel(query_get_key)

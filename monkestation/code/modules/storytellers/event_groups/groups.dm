@@ -4,7 +4,7 @@
 
 /datum/event_group/comms
 	name = "Communications"
-	cooldown_time = list(15 MINUTES, 45 MINUTES)
+	cooldown_time = list(20 MINUTES, 60 MINUTES)
 	max_occurrences = 3
 
 /// Represents small-scale technical difficulties - might annoy some people, but not everyone will notice or be affected,
@@ -23,12 +23,12 @@
 
 /datum/event_group/debris
 	name = "Space Debris"
-	cooldown_time = list(2 MINUTES, 10 MINUTES)
+	cooldown_time = list(2 MINUTES, 20 MINUTES)
 
 /datum/event_group/meteors
 	name = "Meteors"
-	cooldown_time = 20 MINUTES
-	max_occurrences = 3
+	cooldown_time = 60 MINUTES
+	max_occurrences = 2
 
 // needs a better name - this is basically for events focused around spawning some sort of NPCs,
 // i.e vines, wisdom cow, carp, etc.
