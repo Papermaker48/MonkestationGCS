@@ -126,7 +126,7 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 /datum/loadout_item/neck/discoproper
 	name = "Horrible Necktie"
 	item_path = /obj/item/clothing/neck/tie/disco
-	restricted_roles = list(JOB_DETECTIVE)
+	//restricted_roles = list(JOB_DETECTIVE)
 
 /*
 *	MISC
@@ -217,7 +217,7 @@ GLOBAL_LIST_INIT(loadout_necks, generate_loadout_items(/datum/loadout_item/neck)
 
 /datum/loadout_item/neck/donator/knight_cloak
 	name = "Knight Cloak"
-	restricted_roles = list(JOB_MIME)
+	//restricted_roles = list(JOB_MIME)
 	item_path = /obj/item/clothing/neck/knightcloak
 
 /datum/loadout_item/neck/donator/hornet_cloak

@@ -62,12 +62,12 @@ GLOBAL_LIST_INIT(loadout_miscunders, generate_loadout_items(/datum/loadout_item/
 /datum/loadout_item/under/jumpsuit/disco
 	name = "Superstar Cop Uniform"
 	item_path = /obj/item/clothing/under/rank/security/detective/disco
-	restricted_roles = list(JOB_DETECTIVE)
+	//restricted_roles = list(JOB_DETECTIVE)
 
 /datum/loadout_item/under/jumpsuit/kim
 	name = "Aerostatic Suit"
 	item_path = /obj/item/clothing/under/rank/security/detective/kim
-	restricted_roles = list(JOB_DETECTIVE)
+	//restricted_roles = list(JOB_DETECTIVE)
 
 
 /*

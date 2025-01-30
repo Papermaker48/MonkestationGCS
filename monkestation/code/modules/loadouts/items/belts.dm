@@ -71,3 +71,11 @@ GLOBAL_LIST_INIT(loadout_belts, generate_loadout_items(/datum/loadout_item/belts
 /datum/loadout_item/belts/candle_box
 	name = "Candle Box"
 	item_path = /obj/item/storage/fancy/candle_box
+
+/datum/loadout_item/belts/satchel/frontier
+	name = "Frontier Satchel"
+	item_path = /obj/item/storage/backpack/satchel/eng/frontier_colonist
+
+/datum/store_item/belts/satchel/explorer
+	name = "Explorer Satchel"
+	item_path = /obj/item/storage/backpack/satchel/explorer
