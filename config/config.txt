@@ -8,8 +8,6 @@ $include resources.txt
 $include interviews.txt
 $include lua.txt
 $include auxtools.txt
-$include plexora.txt
-$include map_vote.txt
 
 # You can use the @ character at the beginning of a config option to lock it from being edited in-game
 # Example usage:
@@ -20,22 +18,22 @@ $include map_vote.txt
 # There are various options which are hard-locked for security reasons.
 
 ## Server name: This appears at the top of the screen in-game and in the BYOND hub. Uncomment and replace 'tgstation' with the name of your choice.
-# SERVERNAME tgstation
+SERVERNAME dodestation
 
 ## Server SQL name: This is the name used to identify the server to the SQL DB, distinct from SERVERNAME as it must be at most 32 characters.
 # SERVERSQLNAME tgstation
 
 ## Station name: The name of the station as it is referred to in-game. If commented out, the game will generate a random name instead.
-STATIONNAME Space Station 13
+STATIONNAME Dode Station 13
 
 ## Put on byond hub: Uncomment this to put your server on the byond hub.
 #HUB
 
 ## Lobby time: This is the amount of time between rounds that players have to setup their characters and be ready.
-LOBBY_COUNTDOWN 300
+LOBBY_COUNTDOWN 240
 
 ## Round End Time: This is the amount of time after the round ends that players have to murder death kill each other.
-ROUND_END_COUNTDOWN 90
+ROUND_END_COUNTDOWN 120
 
 ## Comment this out if you want to use the SQL based admin system, the legacy system uses admins.txt.
 ## You need to set up your database to use the SQL based system.
@@ -66,7 +64,7 @@ ENABLE_LOCALHOST_RANK
 #USE_ACCOUNT_AGE_FOR_JOBS
 
 ## Unhash this to track player playtime in the database. Requires database to be enabled.
-#USE_EXP_TRACKING
+USE_EXP_TRACKING
 ## Unhash this to enable playtime requirements for head jobs.
 #USE_EXP_RESTRICTIONS_HEADS
 ## Unhash this to override head jobs' playtime requirements with this number of hours.
@@ -132,10 +130,13 @@ VOTE_PERIOD 600
 NORESPAWN
 
 ## set a hosted by name for unix platforms
-HOSTEDBY Yournamehere
+HOSTEDBY Papermaker
 
 ## Uncomment this to stop people connecting to your server without a registered ckey. (i.e. guest-* are all blocked from connecting)
 GUEST_BAN
+
+## Comment this out to disable checking for the cid randomizer dll. (disabled if database isn't enabled or connected)
+CHECK_RANDOMIZER
 
 ## IPINTEL:
 ## This allows you to detect likely proxies by checking ips against getipintel.net
@@ -377,7 +378,7 @@ CLIENT_ERROR_BUILD 1590
 ## Set to 0 or comment out to disable.
 SECOND_TOPIC_LIMIT 10
 
-MINUTE_TOPIC_LIMIT 100
+3MINUTE_TOPIC_LIMIT 100
 
 
 ## CLICK RATE LIMITING
@@ -388,7 +389,7 @@ MINUTE_TOPIC_LIMIT 100
 ## Set to 0 to disable.
 SECOND_CLICK_LIMIT 15
 
-MINUTE_CLICK_LIMIT 400
+3MINUTE_CLICK_LIMIT 400
 
 ##Error handling related options
 ## The "cooldown" time for each occurence of a unique error
@@ -490,6 +491,9 @@ DEFAULT_VIEW_SQUARE 15x15
 ## See above, but for non-urgent ahelps
 #REGULAR_ADMINHELP_WEBHOOK_URL
 
+##See above, but for non-urgent mhelps
+#REGULAR_MENTORHELP_WEBHOOK_URL
+
 ## The urgent ahelp cooldown for a given player if they're alone on a server and need to send an urgent ahelp.
 URGENT_AHELP_COOLDOWN 300
 
@@ -519,17 +523,12 @@ URGENT_AHELP_COOLDOWN 300
 MOTD motd.txt
 #MOTD motd_extra.txt
 
-## Assets can opt-in to caching their results into `cache/`.
+## Assets can opt-in to caching their results into `tmp`.
 ## This is important, as preferences assets take upwards of 30 seconds (without sleeps) to collect.
-## The cache is assumed to be cleared by TGS recompiling, which deletes `cache/`.
+## The cache is assumed to be cleared by TGS recompiling, which deletes `tmp`.
 ## This should be disabled (through `CACHE_ASSETS 0`) on development,
 ## but enabled on production (the default).
-CACHE_ASSETS 0
-
-## If this is uncommented, we will save all associated spritesheet PNGs and CSS files to a folder in the round-specific logs folder.
-## Useful for developers to debug potential spritesheet issues to determine where the issue is cropping up (either in DM-side sprite generation or in the TGUI-side display of said spritesheet).
-## Will only seek to waste disk space if ran on production.
-#SAVE_SPRITESHEETS
+CACHE_ASSETS 1
 
 ## If this remains commented out, we will allow players to download their own preferences as a JSON file to do whatever they wish.
 ## This does require the game code to read (and only read) the /data folder where these files are stored, and then use the BYOND FTP Function to send the file to the client.
@@ -567,6 +566,3 @@ CONFIG_ERRORS_RUNTIME
 ## The age in days if minimum account age is on
 #MINIMUM_AGE
 
-## Tgui payloads larger than the 2kb limit for BYOND topic requests are split into roughly 1kb chunks and sent in sequence.
-## This config option limits the maximum chunk count for which the server will accept a payload, default is 32
-TGUI_MAX_CHUNK_COUNT 32
