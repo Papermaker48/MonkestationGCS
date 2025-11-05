@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/antagonist/solo/ghost/alien_infestation
 	weight = 3
 	max_occurrences = 1
-	min_players = 35 //monkie edit: 10 to 35 (tg what the fuck)
+	min_players = 9 //monkie edit: 10 to 35 (tg what the fuck)
 
 	earliest_start = 60 MINUTES //monkie edit: 20 to 90
 	//dynamic_should_hijack = TRUE
@@ -20,8 +20,9 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_SECURITY_ASSISTANT,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
+	required_enemies = 2
 	prompted_picking = TRUE
 	repeated_mode_adjust = TRUE
 	track = EVENT_TRACK_ROLESET

@@ -13,14 +13,15 @@
 		JOB_SECURITY_ASSISTANT,
 		JOB_WARDEN,
 		JOB_BRIG_PHYSICIAN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
 	shared_occurence_type = SHARED_HIGH_THREAT
 	repeated_mode_adjust = TRUE
 	maximum_antags = 1
 	exclusive_roles = list(JOB_AI)
-	required_enemies = 4
+	required_enemies = 3
 	weight = 8
-	min_players = 35
+	min_players = 8
 	max_occurrences = 1
 
 /datum/round_event_control/antagonist/solo/malf/trim_candidates(list/candidates)

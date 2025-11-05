@@ -6,7 +6,7 @@
 	name = "Anomaly: Ectoplasmic Outburst"
 	description = "Anomaly that produces an effect of varying intensity based on how many ghosts are orbiting it."
 	typepath = /datum/round_event/anomaly/anomaly_ectoplasm
-	min_players = 30
+	min_players = 11
 	max_occurrences = 2
 	weight = 4 //Rare because of it's wacky and silly nature
 	category = EVENT_CATEGORY_ANOMALIES

@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/ghost_role/contractor
 	weight = 8
 	max_occurrences = 2
-	min_players = 20
+	min_players = 8
 
 	category = EVENT_CATEGORY_SPACE
 	description = "Spawns a contractor in space near the station."

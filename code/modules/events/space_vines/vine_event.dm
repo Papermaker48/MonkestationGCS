@@ -2,8 +2,8 @@
 	name = "Space Vines"
 	typepath = /datum/round_event/spacevine
 	weight = 15
-	max_occurrences = 3
-	min_players = 25 //MONKESTATION CHANGE: 10 ==> 25
+	max_occurrences = 2
+	min_players = 9 //MONKESTATION CHANGE: 10 ==> 25
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Kudzu begins to overtake the station. Might spawn man-traps."
 	min_wizard_trigger_potency = 4

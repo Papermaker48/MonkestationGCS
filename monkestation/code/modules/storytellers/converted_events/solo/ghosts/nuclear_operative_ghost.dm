@@ -21,8 +21,8 @@
 		JOB_BRIG_PHYSICIAN,
 		JOB_BRIDGE_ASSISTANT,
 	)
-	base_antags = 3
-	maximum_antags = 4
+	base_antags = 2
+	maximum_antags = 3
 	enemy_roles = list(
 		JOB_AI,
 		JOB_CYBORG,
@@ -32,10 +32,11 @@
 		JOB_HEAD_OF_SECURITY,
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
+	required_enemies = 3
 	// I give up, just there should be enough heads with 35 players...
-	min_players = 35
+	min_players = 10
 	earliest_start = 60 MINUTES
 	weight = 3
 	max_occurrences = 1

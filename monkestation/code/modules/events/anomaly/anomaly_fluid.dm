@@ -5,7 +5,7 @@
 
 	max_occurrences = 3
 	weight = 20
-	min_players = 30
+	min_players = 6
 	min_wizard_trigger_potency = 1
 	max_wizard_trigger_potency = 4
 	track = EVENT_TRACK_MUNDANE

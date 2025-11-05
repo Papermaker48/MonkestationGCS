@@ -30,12 +30,13 @@
 		JOB_WARDEN,
 		JOB_SECURITY_OFFICER,
 		JOB_SECURITY_ASSISTANT,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
+	required_enemies = 2
 	weight = 4
 	max_occurrences = 0
 	maximum_antags = 1
-	min_players = 45
+	min_players = 10
 	denominator = 30
 
 /datum/round_event_control/antagonist/solo/bloodling/roundstart

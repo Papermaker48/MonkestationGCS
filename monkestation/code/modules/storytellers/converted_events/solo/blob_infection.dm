@@ -4,7 +4,7 @@
 	tags = list(TAG_DESTRUCTIVE, TAG_COMBAT, TAG_EXTERNAL, TAG_ALIEN, TAG_CREW_ANTAG)
 	antag_flag = ROLE_BLOB_INFECTION
 	antag_datum = /datum/antagonist/blob/infection
-	min_players = 35
+	min_players = 10
 	maximum_antags = 1
 	max_occurrences = 1
 	earliest_start = 80 MINUTES

@@ -5,7 +5,7 @@
 
 	max_occurrences = 3
 	weight = 5
-	min_players = 40
+	min_players = 10
 
 	min_wizard_trigger_potency = 1
 	max_wizard_trigger_potency = 4

@@ -25,7 +25,7 @@
 		JOB_CYBORG,
 	)
 	weight = 2
-	min_players = 20
+	min_players = 16
 
 /datum/round_event_control/antagonist/solo/heretic/roundstart
 	name = "Heretics"

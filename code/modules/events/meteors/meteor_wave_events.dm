@@ -4,7 +4,7 @@
 	name = "Meteor Wave: Normal"
 	typepath = /datum/round_event/meteor_wave
 	weight = 4
-	min_players = 15
+	min_players = 8
 	max_occurrences = 3
 	earliest_start = 60 MINUTES //monke edit: 25 to 60
 	category = EVENT_CATEGORY_SPACE
@@ -63,7 +63,7 @@
 	name = "Meteor Wave: Threatening"
 	typepath = /datum/round_event/meteor_wave/threatening
 	weight = 5
-	min_players = 20
+	min_players = 12
 	max_occurrences = 3
 	earliest_start = 75 MINUTES //monke edit: 35 to 75
 	description = "A meteor wave with higher chance of big meteors."
@@ -75,7 +75,7 @@
 	name = "Meteor Wave: Catastrophic"
 	typepath = /datum/round_event/meteor_wave/catastrophic
 	weight = 7
-	min_players = 25
+	min_players = 12
 	max_occurrences = 3
 	earliest_start = 90 MINUTES //monke edit: 45 to 90
 	description = "A meteor wave that might summon a tunguska class meteor."

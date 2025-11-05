@@ -7,7 +7,7 @@
 	earliest_start = 60 MINUTES
 	category = EVENT_CATEGORY_SPACE
 	description = "Spawn a wave of meteors containing zombies."
-	min_players = 50
+	min_players = 12
 	admin_setup = list(/datum/event_admin_setup/input_number/zombie_meteor_count)
 	checks_antag_cap = TRUE
 	track = EVENT_TRACK_ROLESET

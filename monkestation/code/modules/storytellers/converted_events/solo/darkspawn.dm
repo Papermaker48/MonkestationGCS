@@ -24,7 +24,7 @@
 		JOB_BLUESHIELD,
 		JOB_BRIDGE_ASSISTANT,
 	)
-	required_enemies = 5
+	required_enemies = 3
 	enemy_roles = list(
 		JOB_CAPTAIN,
 		JOB_DETECTIVE,
@@ -36,8 +36,8 @@
 		JOB_SECURITY_ASSISTANT,
 	)
 	base_antags = 2
-	maximum_antags = 4
-	min_players = 25
+	maximum_antags = 2
+	min_players = 12
 	roundstart = TRUE
 	//title_icon = "darkspawn"
 	earliest_start = 0 SECONDS

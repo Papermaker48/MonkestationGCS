@@ -168,7 +168,7 @@
 	name = "Scrubber Clog: Critical"
 	typepath = /datum/round_event/scrubber_clog/critical
 	weight = 8
-	min_players = 15
+	min_players = 8
 	max_occurrences = 1
 	earliest_start = 25 MINUTES
 	description = "Really dangerous mobs climb out of a scrubber."

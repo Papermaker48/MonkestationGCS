@@ -20,12 +20,13 @@
 		JOB_SECURITY_OFFICER,
 		JOB_WARDEN,
 		JOB_CHAPLAIN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
+	required_enemies = 2
 	roundstart = TRUE
 	earliest_start = 0 SECONDS
 	weight = 2
-	min_players = 35
+	min_players = 10
 	max_occurrences = 1
 	event_icon_state = "wizard"
 

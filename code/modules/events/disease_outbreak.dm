@@ -23,7 +23,7 @@
 	name = "Disease Outbreak: Classic"
 	typepath = /datum/round_event/disease_outbreak
 	max_occurrences = 2
-	min_players = 15
+	min_players = 10
 	weight = 4
 	track = EVENT_TRACK_MAJOR //monkie edit
 	earliest_start = 20 MINUTES

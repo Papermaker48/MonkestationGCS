@@ -12,9 +12,10 @@
 		JOB_SECURITY_OFFICER,
 		JOB_SECURITY_ASSISTANT,
 		JOB_BRIG_PHYSICIAN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
 	maximum_antags = 1
-	required_enemies = 2
+	required_enemies = 1
 	weight = 6
 	max_occurrences = 2
 	prompted_picking = TRUE

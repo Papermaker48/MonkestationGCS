@@ -3,7 +3,7 @@
 	typepath = /datum/round_event/scrubber_overflow
 	weight = 10
 	max_occurrences = 3
-	min_players = 10
+	min_players = 6
 	category = EVENT_CATEGORY_JANITORIAL
 	description = "The scrubbers release a tide of mostly harmless froth."
 	admin_setup = list(/datum/event_admin_setup/listed_options/scrubber_overflow)
@@ -134,7 +134,7 @@ monkestation end */
 	name = "Scrubber Overflow: Threatening"
 	typepath = /datum/round_event/scrubber_overflow/threatening
 	weight = 4
-	min_players = 25
+	min_players = 6
 	max_occurrences = 1
 	earliest_start = 35 MINUTES
 	description = "The scrubbers release a tide of moderately harmless froth."
@@ -149,7 +149,7 @@ monkestation end */
 	name = "Scrubber Overflow: Catastrophic"
 	typepath = /datum/round_event/scrubber_overflow/catastrophic
 	weight = 2
-	min_players = 35
+	min_players = 7
 	max_occurrences = 1
 	earliest_start = 45 MINUTES
 	description = "The scrubbers release a tide of mildly harmless froth."

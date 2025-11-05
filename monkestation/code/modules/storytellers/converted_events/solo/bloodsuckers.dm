@@ -7,9 +7,6 @@
 		JOB_NANOTRASEN_REPRESENTATIVE,
 		JOB_BLUESHIELD,
 		JOB_HEAD_OF_PERSONNEL,
-		JOB_CHIEF_ENGINEER,
-		JOB_CHIEF_MEDICAL_OFFICER,
-		JOB_RESEARCH_DIRECTOR,
 		JOB_DETECTIVE,
 		JOB_HEAD_OF_SECURITY,
 		JOB_PRISONER,
@@ -23,7 +20,7 @@
 		JOB_AI,
 		JOB_CYBORG,
 	)
-	min_players = 20
+	min_players = 9
 	weight = 8
 	maximum_antags = 2
 	event_icon_state = "vampires"

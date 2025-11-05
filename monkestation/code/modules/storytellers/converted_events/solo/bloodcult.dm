@@ -31,12 +31,13 @@
 		JOB_SECURITY_ASSISTANT,
 		JOB_WARDEN,
 		JOB_CHAPLAIN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
-	base_antags = 2
-	maximum_antags = 3
+	required_enemies = 2
+	base_antags = 1
+	maximum_antags = 2
 	// I give up, just there should be enough heads with 35 players...
-	min_players = 30
+	min_players = 10
 	roundstart = TRUE
 	earliest_start = 0 SECONDS
 	weight = 4

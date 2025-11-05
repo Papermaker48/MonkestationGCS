@@ -6,8 +6,8 @@
 	name = "Space Pirates"
 	typepath = /datum/round_event/pirates
 	weight = 10
-	max_occurrences = 3 //monkestation edit: from 1 to 3 because pirates fighting over the station sounds funny
-	min_players = 20
+	max_occurrences = 2 //monkestation edit: from 1 to 3 because pirates fighting over the station sounds funny
+	min_players = 9
 	//dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_INVASION
 	description = "The crew will either pay up, or face a pirate assault."

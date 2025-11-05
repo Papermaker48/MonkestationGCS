@@ -5,7 +5,7 @@
 
 	max_occurrences = 5
 	weight = 9
-	min_players = 20
+	min_players = 8
 	min_wizard_trigger_potency = 1
 	max_wizard_trigger_potency = 4
 	track = EVENT_TRACK_MAJOR

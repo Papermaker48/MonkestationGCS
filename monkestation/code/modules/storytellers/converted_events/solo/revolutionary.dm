@@ -33,10 +33,14 @@
 		JOB_SECURITY_OFFICER,
 		JOB_SECURITY_ASSISTANT,
 		JOB_WARDEN,
+		JOB_HEAD_OF_PERSONNEL,
+		JOB_CHIEF_ENGINEER,
+		JOB_CHIEF_MEDICAL_OFFICER,
+		JOB_RESEARCH_DIRECTOR,
 	)
-	required_enemies = 6
+	required_enemies = 3
 	// I give up, just there should be enough heads with 35 players...
-	min_players = 35
+	min_players = 8
 	roundstart = TRUE
 	earliest_start = 0 SECONDS
 	weight = 0

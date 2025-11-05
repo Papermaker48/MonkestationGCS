@@ -31,11 +31,12 @@
 		JOB_SECURITY_ASSISTANT,
 		JOB_WARDEN,
 		JOB_CHAPLAIN,
+		JOB_HEAD_OF_PERSONNEL,
 	)
-	required_enemies = 5
-	base_antags = 4
+	required_enemies = 2
+	base_antags = 3
 	maximum_antags = 4
-	min_players = 45
+	min_players = 12
 	roundstart = TRUE
 	earliest_start = 0 SECONDS
 	weight = 4

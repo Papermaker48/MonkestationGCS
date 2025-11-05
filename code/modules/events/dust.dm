@@ -24,7 +24,7 @@
 	typepath = /datum/round_event/space_dust/major_dust
 	weight = 8
 	description = "The station is pelted by sand."
-	min_players = 15
+	min_players = 9
 	max_occurrences = 3
 	earliest_start = 25 MINUTES
 	category = EVENT_CATEGORY_SPACE

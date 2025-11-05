@@ -5,7 +5,7 @@
 	typepath = /datum/round_event/ghost_role/revenant
 	weight = 7
 	max_occurrences = 1
-	min_players = 5
+	min_players = 7
 	//dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns an angry, soul sucking ghost."

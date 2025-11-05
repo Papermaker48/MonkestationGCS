@@ -5,7 +5,7 @@
 	name = "Teratoma Crash"
 	description = "Crashes a pod of up to 5 teratomas into the station."
 	typepath = /datum/round_event/ghost_role/teratoma
-	min_players = 35 // these are destructive
+	min_players = 11 // these are destructive
 	track = EVENT_TRACK_MAJOR
 	weight = 5
 	tags = list(TAG_COMBAT, TAG_DESTRUCTIVE, TAG_OUTSIDER_ANTAG, TAG_EXTERNAL, TAG_ALIEN)

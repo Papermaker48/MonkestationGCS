@@ -9,6 +9,6 @@
 		EVENT_TRACK_ROLESET = 1,
 		EVENT_TRACK_OBJECTIVES = 1
 		)
-	population_min = 40
+	population_min = 8
 	ignores_roundstart = TRUE
 	weight = 2

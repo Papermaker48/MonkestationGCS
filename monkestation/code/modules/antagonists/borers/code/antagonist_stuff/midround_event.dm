@@ -15,7 +15,7 @@
 	)
 	required_enemies = 2
 	weight = 5 // as rare as a natural blob
-	min_players = 20
+	min_players = 10
 	max_occurrences = 1 //should only ever happen once
 	dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
