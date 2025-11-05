@@ -30,7 +30,7 @@ Behavior that's still missing from this component that original food items had t
 	var/list/eatverbs
 	///Callback to be ran for when you take a bite of something
 	var/datum/callback/after_eat
-	///Callback to be ran for when you take a bite of something
+	///Callback to be ran for when you take a finish eating something
 	var/datum/callback/on_consume
 	///Callback to be ran for when the code check if the food is liked, allowing for unique overrides for special foods like donuts with cops.
 	var/datum/callback/check_liked
@@ -46,7 +46,8 @@ Behavior that's still missing from this component that original food items had t
 	var/total_bites = 0
 	var/current_mask
 	///required trait
-	var/required_trait // MONKESTATION EDIT
+	var/required_trait
+	var/tracking_entered = FALSE
 
 /datum/component/edible/Initialize(
 	list/initial_reagents,
@@ -93,12 +94,6 @@ Behavior that's still missing from this component that original food items had t
 	RegisterSignal(parent, COMSIG_OOZE_EAT_ATOM, PROC_REF(on_ooze_eat))
 	RegisterSignal(parent, COMSIG_TRY_EAT_TRAIT, PROC_REF(try_eat_trait))
 	RegisterSignal(parent, COMSIG_ATOM_ATTACK_HAND_SECONDARY, PROC_REF(show_radial_recipes)) //Monkestation edit: CHEWIN COOKING
-
-	if(isturf(parent))
-		RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
-	else
-		var/static/list/loc_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
-		AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)
 
 	if(isitem(parent))
 		RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(UseFromHand))
@@ -474,8 +469,11 @@ Behavior that's still missing from this component that original food items had t
 	if(sig_return & DESTROY_FOOD)
 		qdel(owner)
 		return
-	var/fraction = min(bite_consumption / owner.reagents.total_volume, 1)
+
+	var/fraction = 0.3
+	fraction = min(bite_consumption / owner.reagents.total_volume, 1)
 	owner.reagents.trans_to(eater, bite_consumption, transfered_by = feeder, methods = INGEST)
+	eater.hud_used?.hunger?.update_hunger_bar()
 	bitecount++
 	var/desired_mask = (total_bites / bitecount)
 	desired_mask = round(desired_mask)
@@ -507,6 +505,20 @@ Behavior that's still missing from this component that original food items had t
 	if(!iscarbon(eater))
 		return FALSE
 	var/mob/living/carbon/C = eater
+
+	if(HAS_TRAIT(eater, TRAIT_FOOD_ABSORPTION))
+		if(SEND_SIGNAL(eater, COMSIG_CARBON_ATTEMPT_EAT, parent) & COMSIG_CARBON_BLOCK_EAT)
+			return
+		var/covered_bodyparts = NONE
+		for(var/obj/item/clothing/equipped in C.get_equipped_items())
+			covered_bodyparts |= equipped.body_parts_covered
+
+		if((covered_bodyparts & CHEST|HEAD|ARMS|HANDS|LEGS|FEET) == (CHEST|HEAD|ARMS|HANDS|LEGS|FEET) && C.is_mouth_covered())
+			var/who = (isnull(feeder) || eater == feeder) ? "your" : "[eater.p_their()]"
+			to_chat(feeder, span_warning("You have to expose the membrane on [who] body."))
+			return FALSE
+		else
+			return TRUE
 
 	if(!C.has_mouth())
 		return FALSE
@@ -592,7 +604,7 @@ Behavior that's still missing from this component that original food items had t
 	var/food_quality = get_recipe_complexity()
 
 	if(HAS_TRAIT(parent, TRAIT_FOOD_SILVER)) // it's not real food
-		if(!isjellyperson(eater)) //if you aren't a jellyperson, it makes you sick no matter how nice it looks
+		if(!isoozeling(eater)) //if you aren't a jellyperson, it makes you sick no matter how nice it looks
 			return TOXIC_FOOD_QUALITY_THRESHOLD
 		food_quality += LIKED_FOOD_QUALITY_CHANGE
 
@@ -635,7 +647,8 @@ Behavior that's still missing from this component that original food items had t
 	SEND_SIGNAL(parent, COMSIG_FOOD_CONSUMED, eater, feeder)
 
 	on_consume?.Invoke(eater, feeder)
-
+	if (QDELETED(parent)) // might be destroyed by the callback
+		return
 	// monkestation start: food buffs
 	if(food_buffs && ishuman(eater))
 		var/mob/living/carbon/consumer = eater
@@ -716,9 +729,8 @@ Behavior that's still missing from this component that original food items had t
 		playsound(get_turf(eater),'sound/items/eatfood.ogg', rand(30,50), TRUE)
 		qdel(eaten_food)
 		return COMPONENT_ATOM_EATEN
-//MONKESTATION EDIT START
-/datum/component/edible/proc/UseByMouse(datum/source, mob/user)
 
+/datum/component/edible/proc/UseByMouse(datum/source, mob/user)
 	SIGNAL_HANDLER
 
 	var/atom/owner = parent
@@ -744,4 +756,16 @@ Behavior that's still missing from this component that original food items had t
 	else
 		if(prob(50))
 			L.manual_emote("nibbles away at \the [parent].")
-//MONKESTATION EDIT STOP
+
+/// Enables sending the COMSIG_FOOD_CROSSED signal.
+/// This is an optional signal because very few things use this signal,
+/// and mass tracking COMSIG_ATOM_ENTERED can be very performance-heavy.
+/datum/component/edible/proc/enable_food_crossed()
+	if(tracking_entered)
+		return
+	tracking_entered = TRUE
+	if(isturf(parent))
+		RegisterSignal(parent, COMSIG_ATOM_ENTERED, PROC_REF(on_entered))
+	else
+		var/static/list/loc_connections = list(COMSIG_ATOM_ENTERED = PROC_REF(on_entered))
+		AddComponent(/datum/component/connect_loc_behalf, parent, loc_connections)

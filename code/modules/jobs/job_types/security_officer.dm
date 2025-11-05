@@ -39,7 +39,7 @@
 	)
 	rpg_title = "Guard"
 	job_flags = STATION_JOB_FLAGS
-
+	antag_capacity_points = 3
 
 GLOBAL_LIST_INIT(available_depts, list(SEC_DEPT_ENGINEERING, SEC_DEPT_MEDICAL, SEC_DEPT_SCIENCE, SEC_DEPT_SUPPLY))
 
@@ -229,7 +229,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 		)
 	belt = /obj/item/modular_computer/pda/security
 	ears = /obj/item/radio/headset/headset_sec/alt
-	gloves = /obj/item/clothing/gloves/color/black
+	gloves = /obj/item/clothing/gloves/color/black/security
 	shoes = /obj/item/clothing/shoes/jackboots/sec
 	l_pocket = /obj/item/assembly/flash/handheld
 	r_pocket = /obj/item/restraints/handcuffs

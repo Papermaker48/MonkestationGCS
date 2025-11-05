@@ -13,7 +13,7 @@
 	req_admin_notify = 1
 	minimal_player_age = 7
 	exp_required_type_department = EXP_TYPE_SCIENCE
-	exp_requirements = 900
+	exp_requirements = 1200
 	exp_required_type = EXP_TYPE_CREW
 	exp_granted_type = EXP_TYPE_CREW
 	config_tag = "RESEARCH_DIRECTOR"
@@ -64,7 +64,7 @@
 	belt = /obj/item/modular_computer/pda/heads/rd
 	head = /obj/item/clothing/head/beret/science/rd
 	ears = /obj/item/radio/headset/heads/rd
-	shoes = /obj/item/clothing/shoes/jackboots
+	shoes = /obj/item/clothing/shoes/laceup
 	gloves = /obj/item/clothing/gloves/color/black
 	l_pocket = /obj/item/laser_pointer/purple
 	l_hand = /obj/item/clipboard

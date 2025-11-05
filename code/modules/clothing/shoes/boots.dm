@@ -44,6 +44,10 @@
 	name = "\improper Combat boots"
 	desc = "Replica of a high speed (not anymore), no drag combat boots."
 
+/obj/item/clothing/shoes/combat/nutcracker
+	desc = "High speed, low drag combat boots. The toe looks weirdly rigid."
+	clothing_traits = list(TRAIT_NUTCRACKER) //evil meanie shoes for bullying people
+
 /obj/item/clothing/shoes/jackboots
 	name = "jackboots"
 	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time."
@@ -62,13 +66,24 @@
 	. = ..()
 
 	create_storage(storage_type = /datum/storage/pockets/shoes)
-	AddComponent(/datum/component/shoesteps/combine_boot_sounds) //MONKESTATION EDIT
+	if(type == /obj/item/clothing/shoes/jackboots/sec/hos)
+		AddComponent(/datum/component/shoesteps/hosboots)
+	else
+		AddComponent(/datum/component/shoesteps/combine_boot_sounds) //MONKESTATION EDIT
 
 /obj/item/clothing/shoes/jackboots/fast
 	slowdown = -1
 
 /obj/item/clothing/shoes/jackboots/sec
 	icon_state = "jackboots_sec"
+
+/obj/item/clothing/shoes/jackboots/sec/hos
+	name = "head of security jackboots"
+	icon_state = "jackboots_hos"
+	desc = "Nanotrasen-issue Security combat boots for combat scenarios or combat situations. All combat, all the time. \
+	These ones are extra protective and extra loud."
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
+	armor_type = /datum/armor/combat_swat
 
 /obj/item/clothing/shoes/winterboots
 	name = "winter boots"
@@ -130,6 +145,9 @@
 	lace_time = 8 SECONDS
 	species_exception = list(/datum/species/golem/uranium)
 
+/obj/item/clothing/shoes/workboots/independent //nanotrasen does not make all work boots in existence
+	desc = "A pair of lace-up work boots for the especially blue-collar."
+
 /datum/armor/shoes_workboots
 	bio = 80
 
@@ -189,3 +207,26 @@
 	. = ..()
 
 	create_storage(storage_type = /datum/storage/pockets/shoes)
+
+/obj/item/clothing/shoes/pirate
+	name = "pirate boots"
+	desc = "Yarr."
+	icon_state = "pirateboots"
+	inhand_icon_state = null
+
+/obj/item/clothing/shoes/pirate/armored
+	armor_type = /datum/armor/shoes_pirate
+	strip_delay = 40
+	resistance_flags = NONE
+	lace_time = 12 SECONDS
+	body_parts_covered = FEET|LEGS
+
+/datum/armor/shoes_pirate
+	melee = 25
+	bullet = 25
+	laser = 25
+	energy = 25
+	bomb = 50
+	bio = 90
+	fire = 70
+	acid = 50

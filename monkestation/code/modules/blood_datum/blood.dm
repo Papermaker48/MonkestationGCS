@@ -8,7 +8,7 @@ GLOBAL_LIST_INIT_TYPED(blood_types, /datum/blood_type, init_subtypes_w_path_keys
  */
 PROCESSING_SUBSYSTEM_DEF(blood_drying)
 	name = "Blood Drying"
-	flags = SS_NO_INIT | SS_BACKGROUND
+	flags = SS_NO_INIT | SS_BACKGROUND | SS_HIBERNATE
 	priority = 10
 	wait = 4 SECONDS
 
@@ -252,7 +252,7 @@ PROCESSING_SUBSYSTEM_DEF(blood_drying)
 	if(!new_splat)
 		return
 	blood.can_dry = FALSE
-	RegisterSignals(blood, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACKBY_SECONDARY), PROC_REF(on_cleaned))
+	RegisterSignals(blood, list(COMSIG_ATOM_ATTACKBY, COMSIG_ATOM_ATTACKBY_SECONDARY), PROC_REF(on_cleaned), override = TRUE)
 
 /datum/blood_type/crew/ethereal/proc/on_cleaned(obj/effect/decal/cleanable/source, mob/living/user, obj/item/tool, ...)
 	SIGNAL_HANDLER

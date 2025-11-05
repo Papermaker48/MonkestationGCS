@@ -226,7 +226,6 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/clothing/under/rank/engineering/chief_engineer,
 		/obj/item/clothing/under/rank/medical/chief_medical_officer,
 		/obj/item/clothing/under/rank/rnd/research_director,
-		/obj/item/clothing/under/rank/rnd/research_director/alt,
 		/obj/item/clothing/under/rank/rnd/research_director/turtleneck,
 		/obj/item/clothing/under/rank/security/head_of_security,
 		/obj/item/clothing/under/rank/security/head_of_security/alt,
@@ -277,6 +276,7 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/clothing/suit/bio_suit/plaguedoctorsuit,
 		/obj/item/clothing/under/rank/medical,
 		/obj/item/healthanalyzer,
+		/obj/item/autopsy_scanner,
 		/obj/item/hemostat,
 		/obj/item/reagent_containers/hypospray,
 		/obj/item/reagent_containers/pill/,
@@ -287,7 +287,7 @@ GLOBAL_LIST_INIT(phobia_objs, list(
 		/obj/item/storage/pill_bottle,
 		/obj/item/surgical_drapes,
 		/obj/item/surgicaldrill,
-		/obj/machinery/atmospherics/components/unary/cryo_cell,
+		/obj/machinery/cryo_cell,
 		/obj/machinery/dna_scannernew,
 		/obj/machinery/door/airlock/medical,
 		/obj/machinery/sleeper,
@@ -594,7 +594,6 @@ GLOBAL_LIST_INIT(phobia_turfs, list(
 GLOBAL_LIST_INIT(phobia_species, list(
 	"aliens" = typecacheof(list(
 		/datum/species/abductor,
-		/datum/species/jelly,
 		/datum/species/pod,
 		/datum/species/shadow,
 		/datum/species/oozeling,

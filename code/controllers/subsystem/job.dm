@@ -473,7 +473,7 @@ SUBSYSTEM_DEF(job)
 
 		// Loop through all unassigned players
 		for(var/mob/dead/new_player/player in unassigned)
-			if(!(player?.persistent_client?.patreon?.is_donator() || is_admin(player.client) || player.client?.is_mentor()) && PopcapReached())
+			if(!(player?.persistent_client?.patreon?.is_donator() || is_admin(player.client) || is_mentor(player.client)) && PopcapReached())
 				RejectPlayer(player)
 
 			// Loop through all jobs
@@ -920,13 +920,19 @@ SUBSYSTEM_DEF(job)
 
 /atom/proc/JoinPlayerHere(mob/joining_mob, buckle)
 	// By default, just place the mob on the same turf as the marker or whatever.
-	joining_mob.forceMove(get_turf(src))
+	// Set joining_mob as the new mob so subtypes can use it as a proper mob.
+	if(ispath(joining_mob))
+		joining_mob = new joining_mob(get_turf(src))
+	else
+		joining_mob.forceMove(get_turf(src))
+	return joining_mob
 
 /obj/structure/chair/JoinPlayerHere(mob/joining_mob, buckle)
-	. = ..()
+	var/mob/created_joining_mob = ..()
 	// Placing a mob in a chair will attempt to buckle it, or else fall back to default.
-	if(buckle && isliving(joining_mob))
-		buckle_mob(joining_mob, FALSE, FALSE)
+	if(buckle && isliving(created_joining_mob))
+		buckle_mob(created_joining_mob, FALSE, FALSE)
+	return created_joining_mob
 
 
 /atom/proc/JoinLaunchTowards(mob/joining_mob, obj/effect/oshan_launch_point/player/launched_point)
@@ -1130,9 +1136,13 @@ SUBSYSTEM_DEF(job)
 		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_PLAYTIME, possible_job.title)], Player: [player], MissingTime: [required_playtime_remaining][add_job_to_log ? ", Job: [possible_job]" : ""]")
 		return JOB_UNAVAILABLE_PLAYTIME
 
+	if(!possible_job.conditions_met())
+		JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_CONDITIONS_UNMET, possible_job.title)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
+		return  JOB_UNAVAILABLE_CONDITIONS_UNMET
+
 	//MONKESTATION EDIT START
 	// Job is for donators of a specific level and fail if they did not meet the requirements.
-	if(((possible_job in holiday_restricted) || !isnull(possible_job.job_req_donor)) && (!is_admin(player.client) || !player.client?.is_mentor()))
+	if(((possible_job in holiday_restricted) || !isnull(possible_job.job_req_donor)) && (!is_admin(player.client) || !is_mentor(player.client)))
 		if(player.persistent_client?.patreon?.is_donator()) // They are a donator so we can check if they can bypass the restrictions.
 			if(!isnull(possible_job.job_req_donor) && !player.persistent_client?.patreon?.has_access(possible_job.job_req_donor))
 				JobDebug("[debug_prefix] Error: [get_job_unavailable_error_message(JOB_UNAVAILABLE_DONOR_RANK, possible_job.title)], Player: [player][add_job_to_log ? ", Job: [possible_job]" : ""]")
