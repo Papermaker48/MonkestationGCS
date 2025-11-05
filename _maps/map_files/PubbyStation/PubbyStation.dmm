@@ -220,8 +220,16 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/item/stack/biocube,
-/obj/item/stack/biocube,
+/obj/item/stack/biocube{
+	pixel_x = -5
+	},
+/obj/item/stack/biocube{
+	pixel_x = -5
+	},
+/obj/item/book/manual/botanical_lexicon{
+	pixel_x = 12;
+	pixel_y = 4
+	},
 /turf/open/floor/iron,
 /area/station/service/hydroponics)
 "aaZ" = (
