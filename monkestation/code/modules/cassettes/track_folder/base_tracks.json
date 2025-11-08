@@ -5,7 +5,7 @@
 		"duration": 1500,
 		"artist": "X-CEED",
 		"secret": false,
-		"lobby": false,
+		"lobby": true,
 		"jukebox": true,
 		"genre": "Jazz"
 	},
@@ -25,7 +25,7 @@
 		"duration": 2450,
 		"artist": "Jeroen Tel (Remixed by Cuboos)",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true,
 		"genre": "Electronic"
 	},
@@ -35,7 +35,7 @@
 		"duration": 1370,
 		"artist": "Earthcrusher",
 		"secret": false,
-		"lobby": false,
+		"lobby": true,
 		"jukebox": true,
 		"genre": "Electronic"
 	},
@@ -1021,11 +1021,11 @@
 	},
 	{
 		"url": "https://files.catbox.moe/tshasp.m4a",
-		"title": "Space Asshole",
+		"title": "Space Asshole (Remastered)",
 		"duration": 2340,
 		"artist": "Chris Remo",
 		"secret": false,
-		"lobby": false,
+		"lobby": true,
 		"jukebox": true,
 		"genre": "Folk and Indie"
 	},
@@ -3131,7 +3131,7 @@
 		"artist": "Goat",
 		"genre": "Space",
 		"secret": false,
-		"lobby": false,
+		"lobby": true,
 		"jukebox": true
 	},
 	{
@@ -3780,7 +3780,7 @@
 		"artist": "Madducks",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3790,7 +3790,7 @@
 		"artist": "T87-Sulfurhead",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3800,7 +3800,7 @@
 		"artist": "T87-Sulfurhead",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3810,7 +3810,7 @@
 		"artist": "T87-Sulfurhead",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3820,7 +3820,7 @@
 		"artist": "Chronoquest",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3840,7 +3840,7 @@
 		"artist": "Bizaonacci",
 		"genre": "Folk and Indie",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3850,7 +3850,7 @@
 		"artist": "LISA:The Pointless",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
@@ -3860,7 +3860,7 @@
 		"artist": "Skyline",
 		"genre": "Electronic",
 		"secret": false,
-		"lobby": true,
+		"lobby": false,
 		"jukebox": true
 	},
 	{
