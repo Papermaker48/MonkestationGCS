@@ -9,6 +9,6 @@
 		EVENT_TRACK_OBJECTIVES = 1
 		)
 	tag_multipliers = list(TAG_COMBAT = 1.5)
-	population_min = 8
+	population_min = 4
 	welcome_text = "You feel like a fight is brewing."
 	weight = 1

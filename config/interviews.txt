@@ -6,4 +6,5 @@ INTERVIEW_WELCOME_MSG Welcome to Dode Station! This server is sponsored by MTN D
 # Interview questions are listed here, in the order that they will be displayed in-game.
 # You can include links using markdown-style link notation, like [our rules](https://tgstation13.org/wiki/Rules)
 INTERVIEW_QUESTIONS who are you
-INTERVIEW_QUESTIONS Given an orange portal which is connected to a blue portal, place an orange portal on a moving piston and a blue portal elsewhere. A cube placed on a flat platform is directly beneath the orange portal. When the cube travels through the portal, does it A exit the blue portal with a speed of 0, because it had 0 speed on the platform or B exit the platform with the velocity it had relative to the orange platform. 
+INTERVIEW_QUESTIONS Given an orange portal which is connected to a blue portal, place an orange portal on a moving piston and a blue portal elsewhere. A cube placed on a flat platform is directly beneath the orange portal. When the cube travels through the portal, does it A exit the blue portal with a speed of 0, because it had 0 speed on the platform or B exit the platform with the velocity it had relative to the orange platform.
+INTERVIEW_QUESTIONS who is flareguy and why should we kill him with hammers?
