@@ -305,7 +305,7 @@ GLOBAL_VAR_INIT(dynamic_forced_threat_level, -1)
 	. = "<b><i>Nanotrasen Department of Intelligence Threat Advisory, Spinward Sector, TCD [time2text(world.realtime, "DDD, MMM DD")], [CURRENT_STATION_YEAR]:</i></b><hr>"
 	//monkestation edit start:
 	//switch(round(shown_threat))
-	var/list/green_star_storytellers = list(/datum/storyteller/ghost, /datum/storyteller/sleeper) //list for calmer storytellers for a greenshift
+	var/list/green_star_storytellers = list(/datum/storyteller/sleeper) //list for calmer storytellers for a greenshift
 	var/list/midnight_sun_storytellers = list(/datum/storyteller/jester, /datum/storyteller/warrior, /datum/storyteller/brute) //list for the more chaotic storytellers for black sun
 	var/greenshift = FALSE
 	if((SSgamemode.selected_storyteller in green_star_storytellers) || (SSgamemode.current_storyteller.disable_distribution))
