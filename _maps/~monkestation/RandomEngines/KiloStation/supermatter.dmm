@@ -344,6 +344,9 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"mE" = (
+/turf/closed/wall/r_wall/rust,
+/area/station/engineering/supermatter/room)
 "mR" = (
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 10
@@ -462,6 +465,9 @@
 /obj/machinery/power/terminal{
 	dir = 4
 	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "rj" = (
@@ -505,6 +511,9 @@
 /obj/effect/turf_decal/stripes/corner,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/sign/directions/ptl/directional/east,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "tr" = (
@@ -1151,13 +1160,13 @@
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "LD" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
 /obj/machinery/power/terminal{
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "LM" = (
@@ -1670,12 +1679,12 @@ Yh
 on
 "}
 (4,1,1) = {"
-zp
+mE
 EU
 YJ
 Zt
 Uv
-zp
+mE
 zP
 zp
 qq
@@ -1698,11 +1707,11 @@ jl
 xm
 Zv
 lE
-zp
+mE
 zP
 zp
 oN
-zp
+mE
 zp
 oN
 zp
@@ -1756,7 +1765,7 @@ vD
 vD
 vD
 zp
-zp
+mE
 QA
 CQ
 lV
@@ -1779,7 +1788,7 @@ Iy
 iW
 Ci
 HV
-zp
+mE
 zp
 lf
 aK
@@ -1849,12 +1858,12 @@ GL
 nw
 Xe
 oe
-zp
+mE
 aK
 aK
 "}
 (12,1,1) = {"
-zp
+mE
 UA
 xp
 yr
@@ -1987,7 +1996,7 @@ fH
 sF
 xq
 vL
-zp
+mE
 aK
 aK
 "}
@@ -2032,7 +2041,7 @@ lg
 vD
 vD
 zp
-zp
+mE
 aK
 aK
 aK
@@ -2050,7 +2059,7 @@ fx
 Ee
 zp
 zp
-zp
+mE
 ug
 zP
 zP
