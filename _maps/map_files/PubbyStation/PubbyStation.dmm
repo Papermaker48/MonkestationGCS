@@ -19003,30 +19003,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
-"bAt" = (
-/obj/machinery/door/firedoor,
-/obj/structure/table/reinforced,
-/obj/item/paper_bin{
-	pixel_x = -2;
-	pixel_y = 6
-	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 3;
-	name = "Genetics Desk";
-	req_access = list("genetics")
-	},
-/obj/machinery/door/poddoor/shutters/preopen{
-	dir = 1;
-	id = "rdgene";
-	name = "Genetics Lab Shutters"
-	},
-/obj/machinery/door/window/left/directional/west{
-	dir = 1;
-	name = "Genetics Desk";
-	req_access = list("genetics")
-	},
-/turf/open/floor/plating,
-/area/station/science/genetics)
 "bAu" = (
 /obj/machinery/firealarm/directional/east,
 /obj/machinery/vending/wardrobe/gene_wardrobe,
@@ -20794,6 +20770,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/turf/open/floor/iron/dark,
+/area/station/service/abandoned_gambling_den/gaming)
+"bJh" = (
+/obj/structure/sign/poster/contraband/random/directional/east,
+/obj/effect/landmark/generic_maintenance_landmark,
 /turf/open/floor/iron/dark,
 /area/station/service/abandoned_gambling_den/gaming)
 "bJi" = (
@@ -29025,6 +29006,10 @@
 /obj/effect/turf_decal/tile/purple/half/contrasted,
 /turf/open/floor/iron/white,
 /area/station/science/lab)
+"cKO" = (
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/security/brig)
 "cKQ" = (
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
@@ -30136,6 +30121,12 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/security/checkpoint/supply)
+"dMI" = (
+/obj/item/clothing/suit/apron/surgical,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/science/xenobiology)
 "dMO" = (
 /obj/structure/urinal{
 	pixel_y = 32
@@ -30575,12 +30566,6 @@
 /obj/item/stock_parts/subspace/treatment,
 /turf/open/floor/iron/dark/telecomms,
 /area/station/tcommsat/server)
-"eeC" = (
-/obj/item/clothing/suit/apron/surgical,
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/science/xenobiology)
 "eeF" = (
 /obj/structure/chair{
 	dir = 8
@@ -30661,6 +30646,24 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/drone_bay)
+"ejE" = (
+/obj/structure/table,
+/obj/effect/turf_decal/tile/green{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/item/stack/biocube{
+	pixel_x = -5
+	},
+/obj/item/stack/biocube{
+	pixel_x = -5
+	},
+/obj/item/book/manual/botanical_lexicon{
+	pixel_x = 12;
+	pixel_y = 4
+	},
+/turf/open/floor/iron,
+/area/station/service/hydroponics)
 "ejL" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/engineering/tool{
@@ -30778,14 +30781,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
-"enL" = (
-/obj/machinery/door/airlock{
-	name = "Garden"
-	},
-/obj/machinery/door/firedoor,
-/obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/monastery)
+"env" = (
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/cargo)
 "eoo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -31026,24 +31025,6 @@
 /obj/item/pen/red,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
-"ezK" = (
-/obj/structure/table,
-/obj/effect/turf_decal/tile/green{
-	dir = 4
-	},
-/obj/structure/cable,
-/obj/item/stack/biocube{
-	pixel_x = -5
-	},
-/obj/item/stack/biocube{
-	pixel_x = -5
-	},
-/obj/item/book/manual/botanical_lexicon{
-	pixel_x = 12;
-	pixel_y = 4
-	},
-/turf/open/floor/iron,
-/area/station/service/hydroponics)
 "ezQ" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/trash/soap,
@@ -32290,10 +32271,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/fore)
-"fvG" = (
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/cargo)
 "fwe" = (
 /obj/machinery/firealarm/directional/west,
 /obj/structure/chair/office{
@@ -33073,6 +33050,10 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"gih" = (
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/engine)
 "gii" = (
 /turf/closed/wall/r_wall,
 /area/station/command/heads_quarters/nt_rep)
@@ -34768,6 +34749,12 @@
 "hEC" = (
 /turf/closed/wall/r_wall,
 /area/station/medical/abandoned)
+"hER" = (
+/obj/structure/chair/stool/bar/directional/north,
+/obj/effect/mapping_helpers/broken_floor,
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/wood,
+/area/station/service/abandoned_gambling_den)
 "hEX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -35048,6 +35035,10 @@
 /obj/effect/landmark/event_spawn,
 /turf/open/floor/engine,
 /area/station/science/lab)
+"hTD" = (
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/crew_quarters/dorms)
 "hUx" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -37904,6 +37895,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/storage/primary)
+"ktM" = (
+/obj/machinery/door/airlock{
+	name = "Garden"
+	},
+/obj/machinery/door/firedoor,
+/obj/structure/cable,
+/obj/effect/landmark/navigate_destination/garden,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/monastery)
 "ktQ" = (
 /obj/structure/disposalpipe/trunk{
 	dir = 8
@@ -38315,12 +38315,6 @@
 /obj/machinery/holopad/secure,
 /turf/open/floor/carpet,
 /area/station/command/heads_quarters/hos)
-"kPA" = (
-/obj/structure/chair/stool/bar/directional/north,
-/obj/effect/mapping_helpers/broken_floor,
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/wood,
-/area/station/service/abandoned_gambling_den)
 "kPE" = (
 /obj/machinery/button/curtain{
 	id = "blueshield"
@@ -41034,6 +41028,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
+"nhC" = (
+/obj/effect/landmark/generic_maintenance_landmark,
+/turf/open/floor/plating,
+/area/station/maintenance/department/science/central)
 "nih" = (
 /obj/structure/closet,
 /obj/effect/spawner/random/clothing/costume,
@@ -41704,10 +41702,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
-"nNz" = (
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/crew_quarters/dorms)
 "nNN" = (
 /obj/structure/disposaloutlet{
 	dir = 4
@@ -44636,10 +44630,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/rd)
-"qgx" = (
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/security/brig)
 "qgA" = (
 /obj/machinery/door/firedoor,
 /obj/structure/cable,
@@ -47868,11 +47858,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/security/range)
-"sGv" = (
-/obj/structure/sign/poster/contraband/random/directional/east,
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/iron/dark,
-/area/station/service/abandoned_gambling_den/gaming)
 "sHc" = (
 /obj/machinery/airalarm/directional/west,
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -48355,10 +48340,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/service/chapel_office,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
-"taq" = (
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/engine)
 "taw" = (
 /obj/machinery/computer/atmos_control/air_tank{
 	dir = 1
@@ -51587,6 +51568,25 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/engineering/storage/tech)
+"vsG" = (
+/obj/machinery/door/firedoor,
+/obj/structure/table/reinforced,
+/obj/item/paper_bin{
+	pixel_x = -2;
+	pixel_y = 6
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	dir = 1;
+	id = "rdgene";
+	name = "Genetics Lab Shutters"
+	},
+/obj/machinery/door/window/left/directional/west{
+	dir = 1;
+	name = "Genetics Desk";
+	req_access = list("genetics")
+	},
+/turf/open/floor/plating,
+/area/station/science/genetics)
 "vsJ" = (
 /obj/machinery/atmospherics/pipe/smart/simple/yellow/visible,
 /turf/open/floor/iron,
@@ -53438,10 +53438,6 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/plating,
 /area/station/hallway/secondary/exit/departure_lounge)
-"wKC" = (
-/obj/effect/landmark/generic_maintenance_landmark,
-/turf/open/floor/plating,
-/area/station/maintenance/department/science/central)
 "wKP" = (
 /obj/effect/turf_decal/tile/blue,
 /obj/machinery/airalarm/directional/east,
@@ -69143,7 +69139,7 @@ bWV
 cgG
 cgG
 bWV
-enL
+ktM
 bWV
 cgG
 cgG
@@ -72370,7 +72366,7 @@ aaa
 aaa
 aiu
 aiX
-qgx
+cKO
 aks
 aiu
 ait
@@ -76313,7 +76309,7 @@ bva
 qNQ
 bHQ
 kjI
-sGv
+bJh
 bHQ
 bKm
 bMD
@@ -80172,7 +80168,7 @@ bDi
 bRF
 bDi
 uIR
-taq
+gih
 bva
 bPA
 ftp
@@ -82948,7 +82944,7 @@ aTW
 aUW
 aRL
 aaX
-ezK
+ejE
 vPa
 wxO
 bbd
@@ -91197,7 +91193,7 @@ buu
 bvB
 vvn
 ydb
-bAt
+vsG
 bDI
 bCM
 bDI
@@ -92926,7 +92922,7 @@ aiU
 jHP
 aju
 ajt
-kPA
+hER
 mnG
 xjl
 otM
@@ -93450,7 +93446,7 @@ ajv
 ajv
 ajv
 ajv
-nNz
+hTD
 asl
 aiS
 aqT
@@ -100689,7 +100685,7 @@ aaa
 vgm
 jEL
 uSW
-wKC
+nhC
 uSW
 lEn
 vYN
@@ -101181,7 +101177,7 @@ aEj
 aFi
 ezQ
 aFi
-fvG
+env
 odG
 aEj
 wmE
@@ -102002,7 +101998,7 @@ izF
 bwm
 niN
 bwm
-eeC
+dMI
 lWy
 lWy
 jDA
