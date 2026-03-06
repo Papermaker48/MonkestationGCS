@@ -1,6 +1,6 @@
 GLOBAL_DATUM(everyone_an_antag, /datum/everyone_is_an_antag_controller)
 
-ADMIN_VERB(secrets, R_NONE, FALSE, "Secrets", "Abuse harder than you ever have before with this handy dandy semi-misc stuff menu.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before with this handy dandy semi-misc stuff menu.", ADMIN_CATEGORY_GAME)
 	var/datum/secrets_menu/tgui = new(user)
 	tgui.ui_interact(user.mob)
 	BLACKBOX_LOG_ADMIN_VERB("Secrets Panel")
@@ -106,7 +106,7 @@ ADMIN_VERB(secrets, R_NONE, FALSE, "Secrets", "Abuse harder than you ever have b
 					for(var/datum/disease/acute/disease as anything in living.diseases)
 						disease.cure(target = living)
 
-		if("list_bombers")
+		if("list_bombers") //TODO use the dynamic_invoke_verb here maybe? Any reason why we aren't?
 			holder.holder.list_bombers()
 
 		if("list_signalers")

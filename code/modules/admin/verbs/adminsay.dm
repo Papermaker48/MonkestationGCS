@@ -1,10 +1,7 @@
-ADMIN_VERB(cmd_admin_say, R_NONE, FALSE, "ASay", "Send a message to other admins", ADMIN_CATEGORY_MAIN, message as text)
-	message = copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN)
+ADMIN_VERB(cmd_admin_say, R_NONE, "ASay", "Send a message to other admins", ADMIN_CATEGORY_MAIN, message as text)
+	message = emoji_parse(copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN))
 	if(!message)
 		return
-
-	SSplexora.relay_admin_say(user, html_decode(message))
-	message = emoji_parse(message)
 
 	if(findtext(message, "@") || findtext(message, "#"))
 		var/list/link_results = check_asay_links(message)
@@ -24,14 +21,10 @@ ADMIN_VERB(cmd_admin_say, R_NONE, FALSE, "ASay", "Send a message to other admins
 	var/asay_color = user.prefs.read_preference(/datum/preference/color/asay_color)
 	var/custom_asay_color = (CONFIG_GET(flag/allow_admin_asaycolor) && asay_color) ? "<font color=[asay_color]>" : "<font color='[DEFAULT_ASAY_COLOR]'>"
 	message = "[span_adminsay("[span_prefix("ADMIN:")] <EM>[key_name_admin(user)]</EM> [ADMIN_FLW(user.mob)]: [custom_asay_color]<span class='message linkify'>[message]")]</span>[custom_asay_color ? "</font>":null]"
-	for(var/client/admin as anything in GLOB.admins)
-		to_chat(
-			admin,
-			type = MESSAGE_TYPE_ADMINCHAT,
-			html = message,
-			avoid_highlighting = (admin == user),
-			confidential = TRUE,
-		)
+	to_chat(GLOB.admins,
+		type = MESSAGE_TYPE_ADMINCHAT,
+		html = message,
+		confidential = TRUE)
 
 	BLACKBOX_LOG_ADMIN_VERB("Asay")
 

@@ -142,6 +142,5 @@
 		menu.Unlock()
 		menu.ui_interact(usr)
 
-	if(check_rights(R_ADVANCEDCALL))
-		if(href_list[VV_HK_CALLPROC])
-			return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/call_proc_datum, target)
+	if(href_list[VV_HK_CALLPROC])
+		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/call_proc_datum, target)

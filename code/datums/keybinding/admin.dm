@@ -126,6 +126,7 @@
 	user.readmin()
 	return TRUE
 
+
 /datum/keybinding/admin/view_tags
 	hotkey_keys = list("F9")
 	name = "view_tags"

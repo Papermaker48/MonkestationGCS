@@ -142,16 +142,18 @@ GLOBAL_LIST_INIT(cassette_reviews, list())
 #undef ADMIN_OPEN_REVIEW
 
 // Handles UI to manage cassettes.
-ADMIN_VERB(review_cassettes, R_FUN, FALSE, "Review Cassettes", "Review this rounds cassettes.", ADMIN_CATEGORY_GAME)
-	new /datum/review_cassettes(user.mob)
+ADMIN_VERB(review_cassettes, R_FUN, "Review Cassettes", "Review this rounds cassettes.", ADMIN_CATEGORY_GAME)
+	new /datum/review_cassettes(user)
 
 /datum/review_cassettes
+	var/client/holder //client of whoever is using this datum
 
-/datum/review_cassettes/New(mob/user)
-	ui_interact(user)//datum has a tgui component, here we open the window
+/datum/review_cassettes/New(user)
+	holder = user
+	ui_interact(holder.mob)//datum has a tgui component, here we open the window
 
-/datum/review_cassettes/ui_state(mob/user)
-	return ADMIN_STATE(R_FUN)
+/datum/review_cassettes/ui_status(mob/user, datum/ui_state/state) // Is this even required anymore?
+	return (user.client == holder) ? UI_INTERACTIVE : UI_CLOSE
 
 /datum/review_cassettes/ui_close()// Don't leave orphaned datums laying around. Hopefully this handles timeouts?
 	qdel(src)

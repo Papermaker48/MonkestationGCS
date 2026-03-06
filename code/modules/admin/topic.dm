@@ -721,11 +721,11 @@
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/cmd_admin_robotize, locate(href_list["makerobot"]))
 
 	else if(href_list["adminplayeropts"])
-
-		var/mob/selected_mob = locate(href_list["adminplayeropts"])
-		usr.client.VUAP_selected_mob = selected_mob
-		usr.client.selectedPlayerCkey = selected_mob.ckey
-		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/vuap_personal, selected_mob)
+		//return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/show_player_panel, locate(href_list["adminplayeropts"]))
+		var/mob/M = locate(href_list["adminplayeropts"])
+		usr.client.VUAP_selected_mob = M
+		usr.client.selectedPlayerCkey = M.ckey
+		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/vuap_personal)
 
 	else if(href_list["ppbyckey"])
 		var/target_ckey = href_list["ppbyckey"]
@@ -740,10 +740,10 @@
 			return
 
 		to_chat(usr, span_notice("Jumping to [target_ckey]'s new mob: [target_mob]!"))
-
+		//return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/show_player_panel, target_mob)
 		usr.client.VUAP_selected_mob = target_mob
 		usr.client.selectedPlayerCkey = target_mob.ckey
-		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/vuap_personal, target_mob)
+		SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/vuap_personal)
 
 	else if(href_list["adminopendemo"])
 		usr.client << link("http://viewer.monkestation.com/?roundid=[GLOB.round_id]&password=[CONFIG_GET(string/replay_password)]#[world.time]") //opens current round at current time

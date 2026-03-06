@@ -262,10 +262,76 @@ export const VethPlayerPanel = (_props) => {
     <Box>
       <Window title="Player Panel Veth" width={1000} height={640}>
         <Window.Content>
-          <Stack fill vertical>
-            <Stack.Item>
-              <AdminHelpers />
-            </Stack.Item>
+          <Section>
+            <Button
+              fluid
+              icon="refresh"
+              content="Refresh"
+              onClick={() => handleAction('refresh')}
+            />
+          </Section>
+          <Section>
+            <Grid>
+              <Grid.Column>
+                <Button
+                  fluid
+                  content="Check Players"
+                  onClick={() => handleAction('checkPlayers')}
+                />
+                <Button
+                  fluid
+                  content="Game Panel"
+                  onClick={() => handleAction('gamePanel')}
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Button
+                  fluid
+                  content="Check Antags"
+                  onClick={() => handleAction('checkAntags')}
+                />
+                <Button
+                  fluid
+                  content="Combo HUD"
+                  onClick={() => handleAction('comboHUD')}
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Button
+                  fluid
+                  content="Fax Panel"
+                  onClick={() => handleAction('faxPanel')}
+                />
+                <Button
+                  fluid
+                  content="Admin VOX"
+                  onClick={() => handleAction('adminVOX')}
+                />
+                <Button
+                  fluid
+                  content="Generate Code"
+                  onClick={() => handleAction('generateCode')}
+                />
+              </Grid.Column>
+              <Grid.Column>
+                <Button
+                  fluid
+                  content="View Opfors"
+                  onClick={() => handleAction('viewOpfors')}
+                />
+                <Button
+                  fluid
+                  content="Create Command Report"
+                  onClick={() => handleAction('createCommandReport')}
+                />
+                <Button
+                  fluid
+                  content="Toggle Admin AI Interact"
+                  onClick={() => handleAction('adminaiinteract')}
+                />
+              </Grid.Column>
+            </Grid>
+          </Section>
 
             <Stack.Item grow>
               <Section

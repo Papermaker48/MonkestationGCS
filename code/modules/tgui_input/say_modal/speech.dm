@@ -50,9 +50,10 @@
 		if(ADMIN_CHANNEL)
 			SSadmin_verbs.dynamic_invoke_verb(client, /datum/admin_verb/cmd_admin_say, entry)
 			return TRUE
+/*
 		if(MENTOR_CHANNEL)
-			SSadmin_verbs.dynamic_invoke_mentor_verb(client, /datum/mentor_verb/cmd_mentor_say, entry)
-			return TRUE
+			client.cmd_mentor_say(entry)
+*/
 	return FALSE
 
 /**

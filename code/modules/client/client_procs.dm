@@ -108,11 +108,11 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		cmd_admin_pm(href_list["priv_msg"],null)
 		return
 
-
+/*
 	if (href_list["player_ticket_panel"])
 		view_latest_ticket()
 		return
-
+*/
 	// TGUIless adminhelp
 	if(href_list["tguiless_adminhelp"])
 		no_tgui_adminhelp(input(src, "Enter your ahelp", "Ahelp") as null|message)
@@ -354,7 +354,7 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 
 	// Admin Verbs need the client's mob to exist. Must be after ..()
 	var/connecting_admin = FALSE //because de-admined admins connecting should be treated like admins.
-	//Admin Authorization
+	//Admin Authorisation
 	var/datum/admins/admin_datum = GLOB.admin_datums[ckey]
 	if (!isnull(admin_datum))
 		admin_datum.associate(src)
@@ -374,18 +374,10 @@ GLOBAL_LIST_INIT(blacklisted_builds, list(
 		var/datum/admin_rank/localhost_rank = new("!localhost!", R_EVERYTHING, R_DBRANKS, R_EVERYTHING) //+EVERYTHING -DBRANKS *EVERYTHING
 		new /datum/admins(list(localhost_rank), ckey, 1, 1)
 
-	//MONKE EDIT START
-	// Mentor Verbs need the client's mob to exist. Must be after ..() and admin_datum setups. A lot of checks require admins to load first.
-	//var/connecting_mentor = FALSE //because de-mentored mentors connecting should be treated like mentors. Might not be needed as of 3/31/25
-	//Mentor Authorization
-	var/datum/mentors/mentor_datum = GLOB.mentor_datums[ckey]
-	if (!isnull(mentor_datum))
-		mentor_datum.associate(src)
-	//	connecting_mentor = TRUE
-	else if(GLOB.dementors[ckey])
-		add_verb(src, /client/proc/rementor)
-	//	connecting_mentor = TRUE
-	//MONKE EDIT END
+	if (length(GLOB.stickybanadminexemptions))
+		GLOB.stickybanadminexemptions -= ckey
+		if (!length(GLOB.stickybanadminexemptions))
+			restore_stickybans()
 
 	if (byond_version >= 512)
 		if (!byond_build || byond_build < 1386)
