@@ -1,6 +1,4 @@
-/client/proc/mentor_follow(mob/living/followed_guy) //TODO convert to AVD or merge with admins system
-	if(!is_mentor())
-		return
+MENTOR_VERB(mentor_follow, R_MENTOR, FALSE, "Mentor Follow", "Visually follow a mob.", MENTOR_CATEGORY_MAIN, mob/living/followed_guy in world)
 	if(isnull(followed_guy))
 		return
 	user.mob.reset_perspective(followed_guy)
@@ -10,7 +8,7 @@
 	log_mentor("[key_name(user)] began following [key_name(followed_guy)]")
 	BLACKBOX_LOG_MENTOR_VERB("Mentor Follow")
 
-/client/proc/mentor_unfollow() //TODO convert to AVD or merge with admins system
+/client/proc/mentor_unfollow()
 	set category = "Mentor"
 	set name = "Stop Following"
 	set desc = "Stop following the followed mob."

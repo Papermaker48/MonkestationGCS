@@ -1,4 +1,4 @@
-/client/verb/mentorwho() //TODO convert to AVD or merge with admins system
+/client/verb/mentorwho()
 	set category = "Mentor"
 	set name = "Mentorwho"
 

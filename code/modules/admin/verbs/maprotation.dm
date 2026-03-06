@@ -1,12 +1,4 @@
-ADMIN_VERB(force_random_rotate, R_SERVER, "Trigger 'Random' Map Rotation", "Force a map vote.", ADMIN_CATEGORY_SERVER)
-	var/rotate = tgui_alert(user,"Force a random map rotation to trigger?", "Rotate map?", list("Yes", "Cancel"))
-	if (rotate != "Yes")
-		return
-	message_admins("[key_name_admin(user)] is forcing a random map rotation.")
-	log_admin("[key_name(user)] is forcing a random map rotation.")
-	SSmapping.maprotate()
-
-ADMIN_VERB(admin_change_map, R_SERVER, "Change Map", "Set the next map.", ADMIN_CATEGORY_SERVER)
+ADMIN_VERB(admin_change_map, R_SERVER, FALSE, "Change Map", "Set the next map.", ADMIN_CATEGORY_SERVER)
 	var/list/maprotatechoices = list()
 	for (var/map in config.maplist)
 		var/datum/map_config/virtual_map = config.maplist[map]
@@ -75,8 +67,11 @@ ADMIN_VERB(admin_change_map, R_SERVER, "Change Map", "Set the next map.", ADMIN_
 				fdel("data/custom_map_json/[config_file]")
 			if(!fcopy(config_file, "data/custom_map_json/[config_file]"))
 				return
-			if (virtual_map.LoadConfig("data/custom_map_json/[config_file]", TRUE) != TRUE)
-				to_chat(user, span_warning("Failed to load config: [config_file]. Check that the fields are filled out correctly. \"map_path\": \"custom\" and \"map_file\": \"your_map_name.dmm\""))
+
+			json_value = virtual_map.LoadConfig("data/custom_map_json/[config_file]", TRUE)
+
+			if(!json_value)
+				to_chat(src, span_warning("Failed to load config: [config_file]. Check that the fields are filled out correctly. \"map_path\": \"custom\" and \"map_file\": \"your_map_name.dmm\""))
 				return
 		else
 			virtual_map = load_map_config()
@@ -108,14 +103,17 @@ ADMIN_VERB(admin_change_map, R_SERVER, "Change Map", "Set the next map.", ADMIN_
 			fdel(PATH_TO_NEXT_MAP_JSON)
 		text2file(json_encode(json_value), PATH_TO_NEXT_MAP_JSON)
 
-		if(SSmapping.changemap(virtual_map))
+		if(SSmap_vote.set_next_map(virtual_map))
 			message_admins("[key_name_admin(user)] has changed the map to [virtual_map.map_name]")
-			SSmapping.map_force_chosen = TRUE
+			SSmap_vote.admin_override = TRUE
 		fdel("data/custom_map_json/[config_file]")
 	else
 		var/datum/map_config/virtual_map = maprotatechoices[chosenmap]
 		message_admins("[key_name_admin(user)] is changing the map to [virtual_map.map_name]")
 		log_admin("[key_name(user)] is changing the map to [virtual_map.map_name]")
-		if (SSmapping.changemap(virtual_map))
+		if(SSmap_vote.set_next_map(virtual_map))
 			message_admins("[key_name_admin(user)] has changed the map to [virtual_map.map_name]")
-			SSmapping.map_force_chosen = TRUE
+			SSmap_vote.admin_override = TRUE
+
+ADMIN_VERB(admin_revert_map, R_SERVER, FALSE, "Revert Map Vote", "Reverts the next map.", ADMIN_CATEGORY_SERVER)
+	SSmap_vote.revert_next_map()

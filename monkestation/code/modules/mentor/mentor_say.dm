@@ -1,10 +1,6 @@
-/*
-/client/proc/cmd_mentor_say(msg as text) //TODO convert to AVD or merge with admins system
-	set category = "Mentor"
-	set name = "Mentorsay"
-
-	if(!is_mentor())
-		to_chat(src, span_danger("Error: Only mentors and administrators may use this command."), confidential = TRUE)
+MENTOR_VERB(cmd_mentor_say, R_MENTOR, FALSE, "Mentorsay", "Send a message to other mentors.", MENTOR_CATEGORY_MAIN, message as text)
+	message = copytext_char(sanitize(message), 1, MAX_MESSAGE_LEN)
+	if(!message)
 		return
 
 	var/prefix = "MENTOR"
@@ -68,24 +64,6 @@
 		mentors_to_ping[ASAY_LINK_PINGED_ADMINS_INDEX] = jointext(msglist, " ")
 		return mentors_to_ping
 
-///Gives both Mentors & Admins all Mentor verb
-/client/proc/add_mentor_verbs()
-	if(mentor_datum || holder)
-		add_verb(src, GLOB.mentor_verbs)
-
-/client/proc/remove_mentor_verbs()
-	remove_verb(src, GLOB.mentor_verbs)
-
-/// Verb for opening the requests manager panel
-/client/proc/toggle_mentor_states()
-	set name = "Toggle Mentor State"
-	set desc = "Swaps between mentor pings and no mentor pings."
-	set category = "Mentor"
-	if(mentor_datum)
-		if(mentor_datum.not_active)
-			mentor_datum.not_active = FALSE
-			to_chat(src, span_notice("You will now recieve mentor helps again!"))
-		else
-			mentor_datum.not_active = TRUE
-			to_chat(src, span_notice("You will no longer recieve mentor helps!"))
-*/
+/client/proc/get_mentor_say()
+	var/msg = input(src, null, "msay \"text\"") as text|null
+	SSadmin_verbs.dynamic_invoke_mentor_verb(src, /datum/mentor_verb/cmd_mentor_say, msg)

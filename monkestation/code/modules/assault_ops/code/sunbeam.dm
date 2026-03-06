@@ -142,7 +142,8 @@
 	mid_length = 6.7 SECONDS
 	volume = 100
 	extra_range = 25
-ADMIN_VERB(spawn_sunbeam, R_FUN, "Spawn Sunbeam", "Spawns an ICARUS sunbeam at your location and sends it towards a target.", ADMIN_CATEGORY_FUN)
+
+ADMIN_VERB(spawn_sunbeam, R_FUN, FALSE, "Spawn Sunbeam", "Spawns an ICARUS sunbeam at your location and sends it towards a target.", ADMIN_CATEGORY_FUN)
 	var/mob/living/target_mob = tgui_input_list(user, "Select a mob", "Mob", GLOB.mob_living_list)
 
 	if(!target_mob)
@@ -158,10 +159,10 @@ ADMIN_VERB(spawn_sunbeam, R_FUN, "Spawn Sunbeam", "Spawns an ICARUS sunbeam at y
 		var/edit_scale_x = tgui_input_number(user, "Scale X", "Scale X", SUNBEAM_DEFAULT_SCALE_X, 20, 0)
 		var/edit_scale_y = tgui_input_number(user, "Scale Y", "Scale Y", SUNBEAM_DEFAULT_SCALE_Y, 20, 0)
 
-		new /obj/effect/sunbeam(user.mob, target_mob, edit_movement_cooldown, edit_cooldown, edit_range_fire, edit_range_flatten, edit_scale_x, edit_scale_y)
+		new /obj/effect/sunbeam/targeted(user.mob, target_mob, edit_movement_cooldown, edit_cooldown, edit_range_fire, edit_range_flatten, edit_scale_x, edit_scale_y)
 		return
 
-	new /obj/effect/sunbeam(user.mob, target_mob)
+	new /obj/effect/sunbeam/targeted(user.mob, target_mob)
 
 
 /datum/round_event_control/icarus_sunbeam

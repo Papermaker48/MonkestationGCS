@@ -1,15 +1,17 @@
 /datum/player_panel_veth/ //required for tgui component
 	var/title = "Veth's Ultimate Player Panel"
 
-ADMIN_VERB(player_panel_veth, R_ADMIN, "Player Panel Veth", "Updated Player Panel with TGUI. Currently in testing.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(player_panel_veth, R_ADMIN, FALSE,"Player Panel Veth", "Updated Player Panel with TGUI. Currently in testing.", ADMIN_CATEGORY_GAME)
 	var/datum/player_panel_veth/tgui = new(user.mob)
 	tgui.ui_interact(user.mob)
-	to_chat(src, span_interface("VUAP has been opened!"), confidential = TRUE)
+	to_chat(user, span_interface("VUAP has been opened!"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 	BLACKBOX_LOG_ADMIN_VERB("VUAP")
 
-ADMIN_VERB_AND_CONTEXT_MENU(vuap_personal, R_ADMIN, "Player Options Panel", "Player options panel for a mob.", ADMIN_CATEGORY_GAME, mob/target in GLOB.player_list)
-	var/client/targetclient = target.client
-	if(!length(targetclient.ckey) || targetclient.ckey[1] == "@")
+ADMIN_VERB_AND_CONTEXT_MENU(vuap_personal, R_ADMIN, FALSE, "Open TGUI PP", "Player options panel for a mob.", ADMIN_CATEGORY_GAME, mob/target in GLOB.player_list)
+	if(!target)
+		to_chat(user, span_warning("Could not find desired target mob!"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
+		return
+	if(!length(target.ckey) || target.ckey[1] == "@")
 		var/mob/player = target
 		var/datum/mind/player_mind = get_mind(player, include_last = TRUE)
 		var/player_mind_ckey = ckey(player_mind.key)
@@ -17,7 +19,7 @@ ADMIN_VERB_AND_CONTEXT_MENU(vuap_personal, R_ADMIN, "Player Options Panel", "Pla
 		user.VUAP_selected_mob = target
 		var/datum/vuap_personal/tgui = new(user.mob)
 		tgui.ui_interact(user.mob)
-		tgui_alert(usr, "WARNING! This mob has no associated Mind! Most actions will not work. Last ckey to control this mob is [player_mind_ckey].", "No Mind!")
+		tgui_alert(user, "WARNING! This mob has no associated Mind! Most actions will not work. Last ckey to control this mob is [player_mind_ckey].", "No Mind!")
 
 	else
 		user.selectedPlayerCkey = target.ckey
@@ -25,6 +27,24 @@ ADMIN_VERB_AND_CONTEXT_MENU(vuap_personal, R_ADMIN, "Player Options Panel", "Pla
 		var/datum/vuap_personal/tgui = new(user.mob)
 		tgui.ui_interact(user.mob)
 	BLACKBOX_LOG_ADMIN_VERB("VUAP_personal")
+
+/datum/player_panel_veth/proc/player_ui_data(mob/player)
+#ifndef TESTING
+	if(QDELETED(player) || !player.ckey)
+#else
+	if(QDELETED(player) || !player.mind) // if TESTING is enabled, this lets us test with a spawned debug crew
+#endif
+		return
+	var/previous_names = player.persistent_client?.get_played_names(sanitize = FALSE, seperator = ", ")
+	return list(
+		"name" = player.name,
+		"old_name" = previous_names,
+		"job" = player.job,
+		"ckey" = player.ckey,
+		"is_antagonist" = is_special_character(player, allow_fake_antags = TRUE),
+		"last_ip" = player.lastKnownIP,
+		"ref" = REF(player)
+	)
 
 /datum/player_panel_veth/ui_data(mob/user)
 	var/list/players = list()
@@ -63,6 +83,9 @@ ADMIN_VERB_AND_CONTEXT_MENU(vuap_personal, R_ADMIN, "Player Options Panel", "Pla
 			to_chat(usr, "Smiting [selected_mob.ckey].", confidential = TRUE)
 		if("refresh")
 			ui.send_update()
+			return
+		if("oldPP")
+			SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/playerpanel) //logs/rightscheck inside the proc
 			return
 		if("checkPlayers")
 			SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/check_players) //logs/rightscheck inside the proc
@@ -295,8 +318,11 @@ love, veth
 		if("ban")
 			if(!check_rights(R_BAN))
 				return
-			//usr.client.ban_panel()
-			SSblackbox.record_feedback("tally", "VUAP", 1, "Ban")
+			usr.client.holder.Topic(null, list(
+				"newbankey" = selected_mob.ckey,
+				"newbanip" = selected_mob.lastKnownIP,
+				"newbancid" = selected_mob.client.computer_id,
+				"admin_token" = usr.client.holder.href_token,))
 			return
 		if("prison")
 			usr.client.holder.Topic(null, list(
@@ -591,6 +617,4 @@ love, veth
 			return
 
 /datum/vuap_personal/ui_state(mob/user)
-	return GLOB.admin_state
-
-
+	return ADMIN_STATE(R_ADMIN)

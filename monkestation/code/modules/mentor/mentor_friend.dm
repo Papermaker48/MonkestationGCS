@@ -1,18 +1,7 @@
 //Section for the Mentor Friend verb run test
-/*
-/client/proc/imaginary_friend()
-	set category = "Mentor"
-	set name = "Become Imaginary Friend"
-
-	if(!usr.client.is_mentor())
-		return
-
-	if(istype(usr, /mob/camera/imaginary_friend/mentor))
-		to_chat(usr, span_warning("You are already someone's imaginary friend!"))
-		return
-
-	if(!isobserver(usr))
-		to_chat(usr, span_warning("You can only be an imaginary friend when you are observing."))
+MENTOR_VERB(imaginary_friend, R_MENTOR, FALSE, "Become Imaginary Friend", "Become someones imaginary friend.", MENTOR_CATEGORY_MAIN)
+	if(istype(user.mob, /mob/eye/imaginary_friend/mentor))
+		to_chat(user, span_warning("You are already someone's imaginary friend!"))
 		return
 
 	var/mob/living/mentee
@@ -49,7 +38,8 @@ MENTOR_VERB(end_imaginary_friendship, R_MENTOR, FALSE, "End Imaginary Friendship
 
 	var/mob/eye/imaginary_friend/mentor/mentorfriend = user.mob
 	mentorfriend.unmentor()
-*/
+	BLACKBOX_LOG_MENTOR_VERB("End Imaginary Friendship")
+
 //Section for the Mentor Friend mob.
 /mob/eye/imaginary_friend/mentor
 	var/datum/action/innate/imaginary_leave/leave

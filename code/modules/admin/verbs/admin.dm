@@ -1,4 +1,4 @@
-ADMIN_VERB(show_tip, R_ADMIN, "Show Tip", "Sends a tip to all players.", ADMIN_CATEGORY_MAIN)
+ADMIN_VERB(show_tip, R_ADMIN, FALSE, "Show Tip", "Sends a tip to all players.", ADMIN_CATEGORY_MAIN)
 	var/input = input(user, "Please specify your tip that you want to send to the players.", "Tip", "") as message | null
 	if(!input)
 		return
@@ -32,7 +32,7 @@ ADMIN_VERB(announce, R_ADMIN, FALSE, "Announce", "Announce your desires to the w
 	log_admin("Announce: [key_name(user)] [user.holder.fakekey ? "(stealthed)" : ""]: [message]")
 	BLACKBOX_LOG_ADMIN_VERB("Announce")
 
-ADMIN_VERB(unprison, R_ADMIN, "UnPrison", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/prisoner)
+ADMIN_VERB(unprison, R_ADMIN, FALSE, "UnPrison", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/prisoner)
 	if(!is_centcom_level(prisoner.z))
 		tgui_alert(user, "[prisoner.name] is not prisoned.")
 		return
@@ -41,7 +41,7 @@ ADMIN_VERB(unprison, R_ADMIN, "UnPrison", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEG
 	log_admin("[key_name(user)] has unprisoned [key_name(prisoner)]")
 	BLACKBOX_LOG_ADMIN_VERB("Unprison")
 
-ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, "Player Playtime", "View player playtime.", ADMIN_CATEGORY_MAIN)
+ADMIN_VERB(cmd_admin_check_player_exp, R_ADMIN, FALSE, "Player Playtime", "View player playtime.", ADMIN_CATEGORY_MAIN)
 	if(!CONFIG_GET(flag/use_exp_tracking))
 		to_chat(user, span_warning("Tracking is disabled in the server configuration file."), confidential = TRUE)
 		return
@@ -150,7 +150,7 @@ monkestation end */
 
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
-ADMIN_VERB(drop_everything, R_ADMIN, "Drop Everything", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/dropee)
+ADMIN_VERB(drop_everything, R_ADMIN, FALSE, "Drop Everything", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/dropee)
 	var/confirm = tgui_alert(user, "Make [dropee] drop everything?", "Message", list("Yes", "No"))
 	if(confirm != "Yes")
 		return
@@ -160,9 +160,9 @@ ADMIN_VERB(drop_everything, R_ADMIN, "Drop Everything", ADMIN_VERB_NO_DESCRIPTIO
 			qdel(W)
 			dropee.regenerate_icons()
 
-	log_admin("[key_name(user)] made [key_name(dropee)] drop everything!")
-	var/msg = "[key_name_admin(user)] made [ADMIN_LOOKUPFLW(dropee)] drop everything!"
-	message_admins(msg)
+	var/msg = "[key_name(user)] made [key_name(dropee)] drop everything!"
+	log_admin(msg)
+	message_admins("[key_name_admin(user)] made [ADMIN_LOOKUPFLW(dropee)] drop everything!")
 	admin_ticket_log(dropee, msg)
 	BLACKBOX_LOG_ADMIN_VERB("Drop Everything")
 

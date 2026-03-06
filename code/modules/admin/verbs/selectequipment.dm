@@ -1,4 +1,4 @@
-ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, "Select Equipment", mob/target in world)
+ADMIN_VERB_ONLY_CONTEXT_MENU(select_equipment, R_FUN, FALSE, "Select Equipment", mob/target in world)
 	var/datum/select_equipment/ui = new(user, target)
 	ui.ui_interact(user.mob)
 
