@@ -731,7 +731,6 @@ ADMIN_VERB(reload_configuration, R_DEBUG, FALSE, "Reload Configuration", "Reload
 	if(tgui_alert(user, "Are you absolutely sure you want to reload the configuration from the default path on the disk, wiping any in-round modifications?", "Really reset?", list("No", "Yes")) == "Yes")
 		config.admin_reload()
 
-<<<<<<< HEAD
 ADMIN_VERB(reload_lobby_notices, R_NONE, FALSE, "Reload Lobby Notices", "Reloads lobby notices from disk.", ADMIN_CATEGORY_DEBUG)
 	config.load_important_notices()
 	BLACKBOX_LOG_ADMIN_VERB("Reload Lobby Notices")
