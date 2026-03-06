@@ -16,8 +16,6 @@
 // Generic blob defines
 
 #define BLOB_BASE_POINT_RATE 1 // Base amount of points per process() | GCS CHANGE: 2 ==> 1
-#define BLOB_EXPAND_COST 4 // Price to expand onto a new tile
-#define BLOB_ATTACK_REFUND 2 // Points 'refunded' when the expand attempt actually attacks something instead
 #define BLOB_BRUTE_RESIST 0.5 // Brute damage taken gets multiplied by this value
 #define BLOB_FIRE_RESIST 1 // Burn damage taken gets multiplied by this value
 #define BLOB_EXPAND_CHANCE_MULTIPLIER 1 // Increase this value to make blobs naturally expand faster

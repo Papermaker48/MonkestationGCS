@@ -580,19 +580,6 @@
 	},
 /obj/effect/mapping_helpers/burnt_floor,
 /obj/machinery/the_singularitygen,
-/obj/merge_conflict_marker{
-	name = "---Merge Conflict Marker---";
-	
-	desc = "A best-effort merge was performed. You must resolve this conflict yourself (manually) and remove this object once complete."
-	},
-/obj/structure/cable,
-/obj/effect/turf_decal/siding/yellow,
-/obj/effect/turf_decal/tile/yellow/half/contrasted,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/turf_decal/tile/red{
-	dir = 4
-	},
-/obj/machinery/power/smes/engineering/emp_proof,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "tX" = (
@@ -1098,10 +1085,10 @@
 /turf/open/floor/iron,
 /area/station/engineering/engine_smes)
 "KS" = (
-/obj/machinery/power/smes/engineering,
 /obj/structure/lattice/catwalk,
 /obj/machinery/light/directional/south,
 /obj/structure/cable,
+/obj/machinery/power/smes/engineering/emp_proof,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "KZ" = (
