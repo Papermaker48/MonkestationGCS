@@ -27,7 +27,7 @@ endmap
 
 map deltastation
 	#minplayers 50
-	votable
+	#votable
 endmap
 
 map kilostation
@@ -43,13 +43,13 @@ endmap
 
 map theseus
 	#minplayers 5
-	votable
+	#votable
 	#feedbacklink https://www.youtube.com/watch?v=XG8b7WhANNA
 endmap
 
 map tramstation
 	#minplayers 35
-	votable
+	#votable
 endmap
 
 map runtimestation
@@ -64,7 +64,7 @@ map boxstation
 endmap
 
 map blueshift
-	votable
+	#votable
 endmap
 
 map voidraptor
@@ -80,6 +80,7 @@ map pubbystation
 endmap
 
 map graveyard
+	#votable
 endmap
 
 map leadpoisoningstation
@@ -88,5 +89,5 @@ map leadpoisoningstation
 endmap
 
 map oshan
-	votable
+	#votable
 endmap

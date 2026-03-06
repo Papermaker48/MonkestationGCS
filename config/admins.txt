@@ -6,3 +6,4 @@
 
 Papermaker = Host
 Flareguy = Game Master
+Ditchen = Game Master

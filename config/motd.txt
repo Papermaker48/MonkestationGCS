@@ -1,6 +1,4 @@
-<!-- Most valid html will work in here, but you have to use URL links for images. -->
-
-<h1><img src="https://media.discordapp.net/attachments/1177471792579887114/1195250962701500466/attachment.gif?ex=678bf0f4&is=678a9f74&hm=0bf7090b5bdc12c8e22fca34733ae27de44fed783fc8db90fa9eeb2c017ee1cd&"></h1>
+<h1><img src="https://files.catbox.moe/5z9yv9.gif"></h1>
 
 <h2>Welcome to Dode Station 13!</h2>
 
