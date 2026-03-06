@@ -4,8 +4,8 @@
 	weight = 2
 	max_occurrences = 1
 	track = EVENT_TRACK_MAJOR
-	min_players = 11 //monke edit: 20 to 35
-	earliest_start = 55 MINUTES //monke edit: 20 to 55
+	min_players = 11 //gcs edit: 35 to 11
+	earliest_start = 55 MINUTES
 	//dynamic_should_hijack = TRUE
 	category = EVENT_CATEGORY_ENTITIES
 	description = "Spawns a horde of plague rats."

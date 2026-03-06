@@ -41,6 +41,7 @@
 		JOB_SECURITY_OFFICER,
 		JOB_SECURITY_ASSISTANT,
 		JOB_HEAD_OF_PERSONNEL,
+		JOB_BRIG_PHYSICIAN,
 	)
 	extra_spawned_events = list(
 		/datum/round_event_control/antagonist/solo/traitor/roundstart = 8,

@@ -161,12 +161,23 @@
 	icon_state = "backpack-medical"
 	inhand_icon_state = "medicalpack"
 
+/obj/item/storage/backpack/medic/deforest
+	name = "Deforest Backpack"
+	desc = "A Deforest Medical backpack, widened straps and gel padding allows the bag to remain comfortable when loaded to the brim, making it comfortable to carry even in the roughest environments."
+	icon_state = "deforest-backpack"
+
 /obj/item/storage/backpack/security
 	name = "security backpack"
 	desc = "It's a very robust backpack."
 	icon_state = "backpack-security"
 	inhand_icon_state = "securitypack"
 	alternate_worn_layer = (HEAD_LAYER-0.5)
+
+/obj/item/storage/backpack/secmed
+	name = "security medical backpack"
+	desc = "A security-grade backpack, now in security grey!"
+	icon_state = "backpack-secmed"
+	inhand_icon_state = "backpack-secmed"
 
 /obj/item/storage/backpack/captain
 	name = "captain's backpack"
@@ -391,6 +402,11 @@
 	icon_state = "satchel-medical"
 	inhand_icon_state = "satchel-med"
 
+/obj/item/storage/backpack/satchel/med/deforest
+	name = "Deforest Satchel"
+	desc = "A Deforest Medical satchel, reinforced and cross-stitched with insulated padding, the bag is designed to take a beating well still being light enough to carry easily when loaded down."
+	icon_state = "deforest-satchel"
+
 /obj/item/storage/backpack/satchel/vir
 	name = "virologist satchel"
 	desc = "A sterile satchel with virologist colours."
@@ -426,6 +442,12 @@
 	desc = "A robust satchel for security related needs."
 	icon_state = "satchel-security"
 	inhand_icon_state = "satchel-sec"
+
+/obj/item/storage/backpack/satchel/secmed
+	name = "security medical satchel"
+	desc = "A security-grade satchel, now in security grey!"
+	icon_state = "satchel-secmed"
+	inhand_icon_state = "satchel-secmed"
 
 /obj/item/storage/backpack/satchel/explorer
 	name = "explorer satchel"
@@ -557,8 +579,6 @@
 	icon_state = "duffel-virology"
 	inhand_icon_state = "duffel-virology"
 
-
-
 /obj/item/storage/backpack/duffelbag/med/surgery/PopulateContents()
 	new /obj/item/scalpel(src)
 	new /obj/item/hemostat(src)
@@ -578,11 +598,16 @@
 	icon_state = "duffel-security"
 	inhand_icon_state = "duffel-sec"
 
-/obj/item/storage/backpack/duffelbag/sec/surgery
-	name = "surgical duffel bag"
-	desc = "A large duffel bag for holding extra supplies - this one has a material inlay with space for various sharp-looking tools."
+/obj/item/storage/backpack/duffelbag/secmed
+	name = "security medical duffelbag"
+	desc = "A large duffel bag for holding extra supplies, now in security grey!"
+	icon_state = "duffel-secmed"
+	inhand_icon_state = "duffel-secmed"
 
-/obj/item/storage/backpack/duffelbag/sec/surgery/PopulateContents()
+/obj/item/storage/backpack/duffelbag/secmed/surgery
+	desc = "A large duffel bag for holding extra supplies, now in security grey! - this one has a material inlay with space for various sharp-looking tools."
+
+/obj/item/storage/backpack/duffelbag/secmed/surgery/PopulateContents()
 	new /obj/item/scalpel(src)
 	new /obj/item/hemostat(src)
 	new /obj/item/retractor(src)

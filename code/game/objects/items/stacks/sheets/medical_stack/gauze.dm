@@ -53,7 +53,8 @@
 		current_gauze.forceMove(remove_to)
 	else
 		QDEL_NULL(current_gauze)
-		owner.update_bandage_overlays()
+		if(!QDELETED(owner))
+			owner.update_bandage_overlays()
 		return
 	if(can_bleed() && (generic_bleedstacks || cached_bleed_rate))
 		current_gauze.add_mob_blood(owner)
@@ -105,8 +106,9 @@
 		return
 
 	var/whose = helper == owner ? "your" : "[owner]'s"
+	var/theirs = helper == owner ? helper.p_their() : "[owner]'s"
 	helper.visible_message(
-		span_notice("[helper] starts carefully removing [current_gauze] from [whose] [plaintext_zone]."),
+		span_notice("[helper] starts carefully removing [current_gauze] from [theirs] [plaintext_zone]."),
 		span_notice("You start carefully removing [current_gauze] from [whose] [plaintext_zone]..."),
 		vision_distance = COMBAT_MESSAGE_RANGE,
 	)
@@ -118,10 +120,9 @@
 	if(!current_gauze)
 		return
 
-	var/theirs = helper == owner ? helper.p_their() : "[owner]'s"
 	helper.visible_message(
 		span_notice("[helper] finishes removing [current_gauze] from [theirs] [plaintext_zone]."),
-		span_notice("You finish removing [current_gauze] from [theirs] [plaintext_zone]."),
+		span_notice("You finish removing [current_gauze] from [whose] [plaintext_zone]."),
 		vision_distance = COMBAT_MESSAGE_RANGE,
 	)
 

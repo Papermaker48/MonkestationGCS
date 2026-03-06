@@ -251,3 +251,6 @@ tgstation.json
 rust_g64.dll
 
 config/away_missions/*
+
+#ableton sound analysis files
+*.asd

@@ -16,15 +16,20 @@ ADMIN_VERB(show_tip, R_ADMIN, "Show Tip", "Sends a tip to all players.", ADMIN_C
 	log_admin("[key_name(user)] sent \"[input]\" as the Tip of the Round.")
 	BLACKBOX_LOG_ADMIN_VERB("Show Tip")
 
-ADMIN_VERB(announce, R_ADMIN, "Announce", "Announce your desires to the world.", ADMIN_CATEGORY_MAIN)
-	var/message = input(user, "Global message to send:", "Admin Announce")  as message | null
+ADMIN_VERB(announce, R_ADMIN, FALSE, "Announce", "Announce your desires to the world.", ADMIN_CATEGORY_MAIN)
+	var/message = input(user, "Global message to send:", "Admin Announce") as message | null
 	if(!message)
 		return
 	if(!user.holder.check_for_rights(R_SERVER))
 		message = adminscrub(message,500)
 
-	send_formatted_announcement(message, "From [user.holder.fakekey ? "Administrator" : user.key]") // tg uses send_ooc_announcement
-	log_admin("Announce: [key_name(user)] : [message]")
+	if(user.holder.fakekey)
+		send_formatted_announcement(message, "From Administrator") // tg uses send_ooc_announcement
+	else
+		var/pronouns = user.prefs.read_preference(/datum/preference/text/ooc_pronouns)
+		send_formatted_announcement(message, "From [conditional_tooltip_alt(user.key, pronouns, length(pronouns))]", encode_title = FALSE)
+
+	log_admin("Announce: [key_name(user)] [user.holder.fakekey ? "(stealthed)" : ""]: [message]")
 	BLACKBOX_LOG_ADMIN_VERB("Announce")
 
 ADMIN_VERB(unprison, R_ADMIN, "UnPrison", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/prisoner)
